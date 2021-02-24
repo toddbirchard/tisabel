@@ -1,0 +1,74 @@
+{
+  "name": "tisabel",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Todd Birchard <todd@tisabel.com>",
+  "dependencies": {
+    "@blocks/kit": "0.0.28",
+    "@emotion/core": "^10.0.28",
+    "gatsby": "^2.32.3",
+    "gatsby-image": "^2.11.0",
+    "gatsby-plugin-eslint": "^3.0.0",
+    "gatsby-plugin-less": "^4.7.0",
+    "gatsby-plugin-manifest": "^2.4.5",
+    "gatsby-plugin-offline": "^3.2.3",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-sharp": "^2.12.1",
+    "gatsby-source-filesystem": "^2.3.4",
+    "gatsby-source-strapi": "^0.0.12",
+    "gatsby-transformer-sharp": "^2.10.1",
+    "moment": "^2.26.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0",
+    "react-markdown": "^4.3.1",
+    "react-moment": "^0.9.7",
+    "sharp": "^0.27.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/eslint-parser": "7.12.16",
+    "@typescript-eslint/eslint-plugin": "^4.x",
+    "@typescript-eslint/parser": "^4.x",
+    "babel-preset-gatsby": "^0.12.2",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-standard": "^4.1.0",
+    "eslint-webpack-plugin": "^2.5.1",
+    "prettier": "^2.1.1",
+    "stylelint": "^13.10.0"
+  },
+  "keywords": [
+    "gatsby",
+    "strapi",
+    "jamstack",
+    "netlify",
+    "react"
+  ],
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "dev": "npm run develop",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toddbirchard/tisabel"
+  },
+  "bugs": {
+    "url": "https://github.com/toddbirchard/tisabel/issues"
+  }
+}
