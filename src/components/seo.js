@@ -4,47 +4,43 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 const SEO = ({ seo = {} }) => {
-  const { strapiGlobal } = useStaticQuery(query)
-  const { defaultSeo, siteName, favicon } = strapiGlobal
 
-  // Merge default and page-specific SEO values
-  const fullSeo = { ...defaultSeo, ...seo }
 
   const getMetaTags = () => {
     const tags = []
 
-    if (fullSeo.metaTitle) {
+    if (seo.meta_title) {
       tags.push(
         {
           property: `og:title`,
-          content: fullSeo.metaTitle,
+          content: seo.meta_title,
         },
         {
           name: `twitter:title`,
-          content: fullSeo.metaTitle,
+          content: seo.meta_title,
         }
       )
     }
-    if (fullSeo.metaDescription) {
+    if (seo.meta_description) {
       tags.push(
         {
           name: `description`,
-          content: fullSeo.metaDescription,
+          content: seo.meta_description,
         },
         {
           property: `og:description`,
-          content: fullSeo.metaDescription,
+          content: seo.meta_description,
         },
         {
           name: `twitter:description`,
-          content: fullSeo.metaDescription,
+          content: seo.meta_description,
         }
       )
     }
-    if (fullSeo.shareImage) {
+    if (seo.shareImage) {
       const imageUrl =
         (process.env.GATSBY_ROOT_URL || `http://localhost:8000`) +
-        fullSeo.shareImage.publicURL
+        seo.shareImage.publicURL
       tags.push(
         {
           name: `image`,
@@ -60,7 +56,7 @@ const SEO = ({ seo = {} }) => {
         }
       )
     }
-    if (fullSeo.article) {
+    if (seo.article) {
       tags.push({
         property: `og:type`,
         content: `article`,
@@ -75,7 +71,7 @@ const SEO = ({ seo = {} }) => {
 
   return (
     <Helmet
-      title={fullSeo.metaTitle}
+      title={seo.metaTitle}
       titleTemplate={`%s | ${siteName}`}
       link={[
         {
@@ -128,18 +124,9 @@ SEO.defaultProps = {
 
 const query = graphql`
   query {
-    strapiGlobal {
-      siteName
-      favicon {
-        publicURL
-      }
-      defaultSeo {
-        metaTitle
-        metaDescription
-        shareImage {
-          publicURL
-        }
-      }
+    seo {
+      meta_title
+      meta_description
     }
   }
 `
