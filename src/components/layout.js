@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
+import MetaData from "../components/metadata"
+
 
 
 const Layout = ({ data }) => (
-  <Helmet>
-    <html lang={`en`} />
-    <body />
-  </Helmet>
+  <MetaData seo={data.seo} />
 )
 
 Layout.propTypes = {
   data: PropTypes.object,
 }
+
+export default Layout

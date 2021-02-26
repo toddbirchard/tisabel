@@ -1,6 +1,7 @@
 import React from "react"
-import Layout from "../components/layout"
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import Layout from "../components/layout"
 import "../styles/main.less"
 
 const IndexPage = ({ data }) => (
@@ -26,3 +27,25 @@ IndexPage.propTypes = {
     }),
   }),
 }
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    homepage {
+      title
+    }
+    seo {
+      meta_title
+      meta_description
+      json_ltd
+      favicon {
+        url
+      }
+      logo {
+        url
+      }
+      share_image {
+        url
+      }
+    }
+  }
+`
