@@ -1,10 +1,10 @@
-require("dotenv").config({
+require(`dotenv`).config({
   path: `.env`,
-});
+})
 
 module.exports = {
   plugins: [
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -13,22 +13,21 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-strapi",
+      resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
-        contentTypes: ["article", "category", "writer"],
-        singleTypes: [`homepage`, `global`],
+        apiURL: `https://admin.tisabel4ever.com`,
+        contentTypes: [`event`, `info`, `info category`],
+        singleTypes: [`homepage`, `seo`],
         queryLimit: 1000,
       },
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-less`,
       options: {
         javascriptEnabled: true,
         postCssPlugins: [
-          // require(`autoprefixer`),
           require(`cssnano`)({ preset: `default` }),
           require(`stylelint`),
         ],
@@ -49,14 +48,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "tisabel",
-        short_name: "tisabel",
-        start_url: "/",
-        background_color: "#663399",
-        theme_color: "#663399",
-        display: "minimal-ui",
+        name: `tisabel`,
+        short_name: `tisabel`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
       },
     },
-    "gatsby-plugin-offline",
+    `gatsby-plugin-offline`,
   ],
-};
+}

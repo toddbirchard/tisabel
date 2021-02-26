@@ -1,31 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
-import Nav from "./nav"
-import Seo from "./seo"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
 
-const Layout = ({ children, seo }) => (
-  <StaticQuery
-    query={graphql`
-      query {
-          seo {
-            meta_title
-            meta_description
-          }
-      }
-    `}
-    render={( data ) => (
-      <>
-        <Seo seo={seo} />
-        <Nav />
-        <main>{children}</main>
-      </>
-    )}
-  />
+
+const Layout = ({ data }) => (
+  <Helmet>
+    <html lang={`en`} />
+    <body />
+  </Helmet>
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  data: PropTypes.object,
 }
-
-export default Layout
