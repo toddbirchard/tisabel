@@ -1,11 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import MetaData from "../components/metadata"
+import MetaData from "./MetaData"
 
 
-
-const Layout = ({ data }) => (
-  <MetaData seo={data.strapiSeo} />
+const Layout = ({ data, children }) => (
+  <>
+    <MetaData seo={data.strapiSeo} />
+    <div className="layout">
+      {children}
+    </div>
+  </>
 )
 
 Layout.propTypes = {

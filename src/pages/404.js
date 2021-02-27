@@ -1,17 +1,8 @@
 import React from "react"
-
-import MetaData from "../components/metadata"
-import Layout from "../components/layout"
-
+import { Layout } from "../components"
 
 const NotFoundPage = () => (
   <Layout>
-    <MetaData
-      seo={{
-        metaTitle: `404: Not found`,
-        metaDescription: `It looks like you got lost`,
-      }}
-    />
     <h1>NOT FOUND</h1>
     <p>{`You just hit a route that doesn't exist... the sadness.`}</p>
   </Layout>

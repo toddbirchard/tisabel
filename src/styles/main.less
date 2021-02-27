@@ -1,41 +1,136 @@
+@import './fonts.less';
+@import './variables.less';
+@import './mixins.less';
+
+body {
+  margin: 0;
+  background: #f9f9f9;
+  font-family: @body-font;
+}
+
 a {
   text-decoration: none !important;
 }
 
-h1 {
-  font-family: Staatliches !important;
-  font-size: 120px !important;
+h1, h2, h3, h4, h5{
+  font-family: @header-font;
+  font-weight: normal;
 }
 
-#category {
-  font-family: Staatliches !important;
-  font-weight: 500 !important;
+h2 {
+  margin: 40px 0 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 2em;
+  line-height: 1;
 }
 
-#title {
-  letter-spacing: 0.4px !important;
-  font-size: 22px !important;
-  font-size: 1.375rem !important;
-  line-height: 1.13636 !important;
+.layout {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  box-shadow: 0 0 5px #d1d1d1;
 }
 
-#banner {
-  margin: 20px !important;
-  height: 800px !important;
+.hero {
+  position: relative;
+  width: 100%;
+
+  .hero-title {
+    display: block;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    color: white;
+    font-size: 2em;
+  }
 }
 
-#editor {
-  font-size: 16px !important;
-  font-size: 1rem !important;
-  line-height: 1.75 !important;
+main {
+  padding: 0 40px;
+
+  section {
+    margin-bottom: 30px;
+
+    &:last-of-type {
+      margin-bottom: unset;
+    }
+  }
 }
 
-.uk-navbar-container {
-  background: #fff !important;
-  font-family: Staatliches !important;
+#itinerary {
+  border: 1px solid #eaeaea;
+
+  .date {
+    padding: 10px 5px;
+    background: #eaeaea;
+    font-family: @header-font;
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .event {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #eaeaea;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .event-detail {
+
+      .event-time {
+        min-width: 170px;
+        margin-bottom: 3px;
+      }
+
+      .event-location {
+        font-size: .85em;
+      }
+    }
+
+    .event-name {
+      font-size: 1.15em;
+    }
+  }
 }
 
-img:hover {
-  opacity: 1 !important;
-  transition: opacity 0.25s cubic-bezier(0.39, 0.575, 0.565, 1) !important;
+#rsvp {
+  fieldset {
+    padding: 10px 0;
+    border: none;
+
+    .field-title {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    input[type=text] {
+      .input-text-fields();
+      width: 300px;
+    }
+
+    input[type=radio] {
+      margin-right: 20px;
+    }
+
+    textarea {
+      .input-text-fields();
+    }
+
+    .hidden-field {
+      clip: rect(1px, 1px, 1px, 1px);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  }
 }

@@ -1,0 +1,32 @@
+.input-text-fields() {
+  padding: 10px;
+  border: 1px solid #d6dde9;
+  border-radius: 3px !important;
+  background: #f7f8fa;
+  .input-field-interactions();
+}
+
+.input-field-interactions() {
+  -webkit-appearance: none;
+  transition: @transition;
+
+  &::placeholder {
+    color: #a2a7ba;
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: @theme-color;
+    background: lighten(@theme-color, 30%) !important;
+    cursor: text;
+
+    &::placeholder {
+      color: lighten(@theme-color, 5%) !important;
+    }
+  }
+
+  &:focus {
+    border-color: @theme-color;
+    background: white;
+  }
+}

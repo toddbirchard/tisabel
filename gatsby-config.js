@@ -52,7 +52,7 @@ module.exports = {
         short_name: `tisabel4ever`,
         start_url: `/`,
         background_color: `#fff`,
-        theme_color: `#663399`,
+        theme_color: `#f6c75f`,
         icons: [
           {
             src: `img/icons/icon-192x192.png`,
