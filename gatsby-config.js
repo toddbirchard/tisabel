@@ -9,14 +9,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/static`,
       },
     },
     {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `https://admin.tisabel4ever.com`,
-        contentTypes: [`event`, `info`, `info category`],
+        contentTypes: [`event`, `info`, `info-category`],
         singleTypes: [`homepage`, `seo`],
         queryLimit: 1000,
       },
@@ -48,12 +48,28 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `tisabel`,
-        short_name: `tisabel`,
+        name: `tisabel4ever`,
+        short_name: `tisabel4ever`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#fff`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        icons: [
+          {
+            src: `img/icons/icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `img/icons/icon-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+          {
+            src: `img/icons/icon-96x96.png`,
+            sizes: `96x96`,
+            type: `image/png`,
+          },
+        ],
       },
     },
     `gatsby-plugin-offline`,

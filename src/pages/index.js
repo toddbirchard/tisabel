@@ -8,7 +8,7 @@ const IndexPage = ({ data }) => (
   <Layout data={data}>
     <div className="uk-section">
       <div className="uk-container uk-container-large">
-        <h1>{data.homepage.title}</h1>
+        <h1>{data.strapiHomepage.title}</h1>
       </div>
     </div>
   </Layout>
@@ -18,10 +18,10 @@ export default IndexPage
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    homepage: PropTypes.shape({
+    strapiHomepage: PropTypes.shape({
       title: PropTypes.string,
     }),
-    seo: PropTypes.shape({
+    strapiSeo: PropTypes.shape({
       meta_title: PropTypes.string,
       meta_description: PropTypes.string,
     }),
@@ -30,21 +30,40 @@ IndexPage.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    homepage {
+    strapiHomepage {
       title
     }
-    seo {
+    strapiSeo {
       meta_title
       meta_description
-      json_ltd
-      favicon {
-        url
-      }
       logo {
-        url
+        childImageSharp {
+        fluid {
+          originalImg
+          srcSet
+        }
+      }
       }
       share_image {
-        url
+        childImageSharp {
+        fluid {
+          originalImg
+          srcSet
+        }
+      }
+      }
+    }
+    allStrapiInfo {
+      edges {
+        node {
+          description
+          info_category {
+            name
+            image {
+              id
+            }
+          }
+        }
       }
     }
   }

@@ -9,22 +9,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      homepage {
+      strapiHomepage {
         title
       }
-      seo {
+      strapiSeo {
         meta_title
         meta_description
-        json_ltd
-        favicon {
-          url
-        }
-        logo {
-          url
-        }
-        share_image {
-          url
-        }
       }
     }`
   )
@@ -34,11 +24,11 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Query results
-  const homepage = result.data.homepage
-  const seo = result.data.seo
+  const homepage = result.data.strapiHomepage
+  const seo = result.data.strapiSeo
 
   // Templates
-  const indexTemplate = path.resolve(`./src/templates/index.js`)
+  const indexTemplate = path.resolve(`./src/pages/index.js`)
   console.log(seo)
 
 

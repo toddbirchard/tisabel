@@ -5,7 +5,7 @@ import MetaData from "../components/metadata"
 
 
 const Layout = ({ data }) => (
-  <MetaData seo={data.seo} />
+  <MetaData seo={data.strapiSeo} />
 )
 
 Layout.propTypes = {

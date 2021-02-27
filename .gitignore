@@ -87,3 +87,6 @@ functions/*
 
 # Yarn
 .yarn
+
+# Etc
+meta.json
