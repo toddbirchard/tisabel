@@ -29,7 +29,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Templates
   const indexTemplate = path.resolve(`./src/pages/index.js`)
-  console.log(seo)
 
 
   createPage({

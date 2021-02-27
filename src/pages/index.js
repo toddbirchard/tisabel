@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <Layout data={data}>
+      <Layout>
         <section className="hero">
           <div className="hero-title">
             <h1>{data.strapiHomepage.title}</h1>
@@ -35,10 +35,6 @@ IndexPage.propTypes = {
       title: PropTypes.string.isRequired,
       cover_image: PropTypes.object.isRequired,
     }),
-    strapiSeo: PropTypes.shape({
-      meta_title: PropTypes.string,
-      meta_description: PropTypes.string,
-    }),
   }),
 }
 
@@ -52,26 +48,6 @@ export const pageQuery = graphql`
             ...GatsbyImageSharpFluid
           }
         }
-      }
-    }
-    strapiSeo {
-      meta_title
-      meta_description
-      logo {
-        childImageSharp {
-        fluid {
-          originalImg
-          srcSet
-        }
-      }
-      }
-      share_image {
-        childImageSharp {
-        fluid {
-          originalImg
-          srcSet
-        }
-      }
       }
     }
   }

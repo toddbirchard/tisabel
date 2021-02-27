@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { StaticQuery, graphql } from 'gatsby'
 import MetaData from "./MetaData"
 
 
@@ -13,7 +14,42 @@ const Layout = ({ data, children }) => (
 )
 
 Layout.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.shape({
+    strapiSeo: PropTypes.shape({
+      meta_title: PropTypes.string,
+      meta_description: PropTypes.string,
+    }),
+  }),
 }
 
-export default Layout
+const LayoutQuery = props => (
+  <StaticQuery
+    query={graphql`
+            query seoQuery {
+              strapiSeo {
+                meta_title
+                meta_description
+                logo {
+                  childImageSharp {
+                    fluid {
+                      originalImg
+                      srcSet
+                    }
+                  }
+                }
+                share_image {
+                  childImageSharp {
+                    fluid {
+                      originalImg
+                      srcSet
+                    }
+                  }
+                }
+              }
+            }
+        `}
+    render={data => <Layout data={data} {...props} />}
+  />
+)
+
+export default LayoutQuery
