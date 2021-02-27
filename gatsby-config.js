@@ -8,8 +8,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/static`,
+        name: `img`,
+        path: `${__dirname}/src/static`,
       },
     },
     {
@@ -58,17 +58,17 @@ module.exports = {
         legacy: false,
         icons: [
           {
-            src: `/static/img/icons/icon-192x192.png`,
+            src: `src/static/img/icons/icon-192x192.png`,
             sizes: `192x192`,
             type: `image/png`,
           },
           {
-            src: `/static/img/icons/icon-512x512.png`,
+            src: `src/static/img/icons/icon-512x512.png`,
             sizes: `512x512`,
             type: `image/png`,
           },
           {
-            src: `/static/img/icons/icon-96x96.png`,
+            src: `src/static/img/icons/icon-96x96.png`,
             sizes: `96x96`,
             type: `image/png`,
           },
