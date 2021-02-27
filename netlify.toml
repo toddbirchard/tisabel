@@ -5,7 +5,7 @@
   functions = "/functions"
 
 [build.environment]
-  GO_VERSION = "1.15.7"
+  GO_VERSION = "1.15.8"
 
 [[headers]]
   for = "/webfonts/GilroyMedium.woff2"
