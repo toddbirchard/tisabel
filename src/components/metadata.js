@@ -16,11 +16,16 @@ const MetaData = ({ seo }) => (
     <meta property="og:title" content={seo.meta_title}/>
     <meta property="og:description" content={seo.meta_description}/>
     <meta property="og:url" content={seo.canonical}/>
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content=" 724" />
+    <meta property="og:image" content={seo.share_image} />
 
     {/* Twitter */}
     <meta name="twitter:title" content={seo.meta_title}/>
     <meta name="twitter:description" content={seo.meta_description}/>
     <meta name="twitter:url" content={seo.canonical}/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={seo.share_image} />
 
     <script type="application/ld+json">
       {`
@@ -61,9 +66,9 @@ export default MetaData
 
 MetaData.propTypes = {
   seo: PropTypes.shape({
-    meta_title: PropTypes.string,
-    meta_description: PropTypes.string,
-    canonical: PropTypes.string,
-    json_ltd: PropTypes.string,
+    meta_title: PropTypes.string.isRequired,
+    meta_description: PropTypes.string.isRequired,
+    canonical: PropTypes.string.isRequired,
+    share_image: PropTypes.string,
   }),
 }

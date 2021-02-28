@@ -9,7 +9,6 @@ const Itinerary = ({ data }) => {
 
   return (
     <>
-      <h2>Itinerary</h2>
       <section id="itinerary">
         <div className="event-day">
           <div className="date">{first_day.edges[1].node.day}</div>

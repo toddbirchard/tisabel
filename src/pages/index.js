@@ -1,11 +1,11 @@
 import React from "react"
-import { graphql } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
 import { Layout, Itinerary, Details, Rsvp } from "../components"
 import "../styles/main.less"
 
-const IndexPage = ({ data }) => {
+const Homepage = ({ data }) => {
   const heroImage = data.strapiHomepage.cover_image.childImageSharp.fluid
   const logoImage = data.strapiHomepage.logo.childImageSharp.fluid
 
@@ -20,18 +20,21 @@ const IndexPage = ({ data }) => {
           <Img className="hero-image" fluid={heroImage} />
         </section>
         <main>
-          <Itinerary />
-          <Details />
-          <Rsvp />
+          <div className="information">
+            <Details />
+            <Itinerary />
+            <Rsvp />
+            <div>
+              <h2>Gifts</h2>
+            </div>
+          </div>
         </main>
       </Layout>
     </>
   )
 }
 
-export default IndexPage
-
-IndexPage.propTypes = {
+Homepage.propTypes = {
   data: PropTypes.shape({
     strapiHomepage: PropTypes.shape({
       title: PropTypes.string.isRequired,
@@ -41,24 +44,31 @@ IndexPage.propTypes = {
   }),
 }
 
-export const pageQuery = graphql`
-  query IndexQuery {
-    strapiHomepage {
-      title
-      cover_image {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+const HomepageQuery = props => (
+  <StaticQuery
+    query={graphql`
+      query homepage {
+        strapiHomepage {
+          title
+          cover_image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          logo {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
-      logo {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  }
-`
+    `}
+    render={data => <Homepage data={data} {...props} />}
+  />
+)
+
+export default HomepageQuery
