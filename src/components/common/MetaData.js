@@ -62,8 +62,6 @@ const MetaData = ({ seo }) => (
   </Helmet>
 )
 
-export default MetaData
-
 MetaData.propTypes = {
   seo: PropTypes.shape({
     meta_title: PropTypes.string.isRequired,
@@ -72,3 +70,5 @@ MetaData.propTypes = {
     share_image: PropTypes.string,
   }),
 }
+
+export default MetaData

@@ -2,7 +2,8 @@ import React from "react"
 import { graphql, StaticQuery } from 'gatsby'
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
-import { Layout, Itinerary, Details, Rsvp } from "../components"
+import { Layout } from "../components/common"
+import { Itinerary, Details, Rsvp } from "../components"
 import "../styles/main.less"
 
 const Homepage = ({ data }) => {
