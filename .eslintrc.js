@@ -11,6 +11,7 @@ module.exports = {
     `react`,
     `import`,
     `standard`,
+    `jsx-a11y`,
   ],
   extends: [
     `plugin:react/recommended`,

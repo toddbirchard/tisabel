@@ -34,12 +34,14 @@ Itinerary.propTypes = {
         PropTypes.shape({
           edges: PropTypes.arrayOf(
             PropTypes.shape({
-              id: PropTypes.string.isRequired,
-              Name: PropTypes.string.isRequired,
-              start: PropTypes.string.isRequired,
-              end: PropTypes.string,
-              day: PropTypes.string.isRequired,
-              location: PropTypes.string.isRequired,
+              node:PropTypes.shape({
+                id: PropTypes.string.isRequired,
+                Name: PropTypes.string.isRequired,
+                start: PropTypes.string.isRequired,
+                end: PropTypes.string,
+                day: PropTypes.string.isRequired,
+                location: PropTypes.string.isRequired,
+              }),
             }),
           ),
         }),

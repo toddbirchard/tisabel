@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
-import { Itinerary, Rsvp, Donate, Hero } from "../components"
+import { Itinerary, Rsvp, Donate, Hero, Details } from "../components"
 import "../styles/main.less"
 
 const Homepage = ({ data }) => (
@@ -11,7 +11,7 @@ const Homepage = ({ data }) => (
       <Hero homepage={data.strapiHomepage} />
       <main>
         <div className="information">
-          {/*<Details />*/}
+          <Details />
           <Itinerary />
           <Rsvp />
           <Donate />
