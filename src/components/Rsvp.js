@@ -8,11 +8,11 @@ const Rsvp = () => (
         name="rsvp"
         netlify
         data-netlify="true"
-        netlify-honeypot="address"
+        data-netlify-honeypot="streetAddress"
         method="post"
       >
 
-        <fieldset>
+        <fieldset className="hidden-label">
           <span className="field-title">{`New wedding who dis?`}</span>
           <div className="input-group">
             <label htmlFor="guestName" className="hidden-field">Name</label>
@@ -48,15 +48,19 @@ const Rsvp = () => (
           </div>
         </fieldset>
 
-        <fieldset>
+        <fieldset className="hidden-label">
           <span className="field-title">{`Anything else we should know?`}</span>
           <div className="input-group">
-            <label htmlFor="Details" className="hidden-field">Details</label>
+            <label htmlFor="Details">Details</label>
             <textarea id="Details" name="guestDetails"></textarea>
           </div>
         </fieldset>
 
-        <input type="submit" value="Submit" />
+        <fieldset className="hidden-label">
+          <input id="streetAddress" name="form-name" type="hidden" />
+        </fieldset>
+
+        <button type="submit" className="submit">Submit RSVP</button>
 
       </form>
     </section>

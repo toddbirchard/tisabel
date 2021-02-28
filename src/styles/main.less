@@ -31,7 +31,6 @@ h2 {
 }
 
 input[type=text],
-input[type=submit],
 button,
 textarea {
   -webkit-appearance: none;
@@ -187,22 +186,24 @@ main {
       height: 120px;
     }
 
-    .hidden-field {
-      clip: rect(1px, 1px, 1px, 1px);
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
+    &.hidden-label {
+      label{
+        clip: rect(1px, 1px, 1px, 1px);
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
     }
   }
 
-  input[type=submit] {
-    padding: 5px 8px;
+  .submit {
+    padding: 6px 10px;
     border: 1px solid @theme-color;
     border-radius: 3px;
     background: @theme-color;
     color: white;
-    font-size: 1.1em;
+    font-size: 1em;
 
     &:hover {
       background: white;

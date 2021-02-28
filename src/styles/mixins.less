@@ -16,17 +16,17 @@
   }
 
   &:hover {
-    border-color: @theme-color;
-    background: lighten(@theme-color, 30%) !important;
+    border-color: lighten(@theme-color, 10%);
+    background: lighten(@theme-color, 40%) !important;
     cursor: text;
 
     &::placeholder {
-      color: lighten(@theme-color, 5%) !important;
+      color: lighten(@theme-color, 10%) !important;
     }
   }
 
   &:focus {
-    border-color: @theme-color;
+    border-color: lighten(@theme-color, 10%);
     background: white;
   }
 }
