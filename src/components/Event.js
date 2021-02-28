@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from 'prop-types'
 
-
 const Event = ({ data }) => {
   const start_time = data.start
   const end_time = data.end

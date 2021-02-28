@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
-import { Layout, Itinerary, Details, Rsvp } from "../components/"
+import { Layout, Itinerary, Details, Rsvp } from "../components"
 import "../styles/main.less"
 
 const IndexPage = ({ data }) => {
