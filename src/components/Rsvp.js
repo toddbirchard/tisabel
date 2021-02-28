@@ -5,7 +5,7 @@ const Rsvp = () => (
     <section id="rsvp">
       <h2>RSVP</h2>
       <form
-        name="comments"
+        name="rsvp"
         netlify
         data-netlify="true"
         netlify-honeypot="address"
@@ -23,28 +23,28 @@ const Rsvp = () => (
         <fieldset>
           <span className="field-title">{`Are you coming or nah?`}</span>
           <div className="input-group">
+            <input id="guestRsvpYes" name="guestRsvp" value="yes" type="radio" />
             <label htmlFor="guestRsvpYes">Yes</label>
-            <input id="guestRsvpYes" name="Yes" type="radio" />
+            <input id="guestRsvpNo" name="guestRsvp" value="no" type="radio" />
             <label htmlFor="guestRsvpNo">Nah</label>
-            <input id="guestRsvpNo" name="No" type="radio" />
           </div>
         </fieldset>
 
         <fieldset>
           <span className="field-title">{`Bringing a +1?`}</span>
           <div className="input-group">
-            <label htmlFor="guestPlusOne">+1</label>
-            <input id="guestPlusOne" name="+1" type="checkbox" value="+1" />
+            <input id="guestPlusOne" name="guestPlusOne" type="checkbox" value="+1 confirmed" />
+            <label htmlFor="guestPlusOne">{`Yes, I'm bringing a +1`}</label>
           </div>
         </fieldset>
 
         <fieldset>
           <span className="field-title">{`Free hotel room?`}</span>
           <div className="input-group">
+            <input id="guestHotelYes" name="guestHotel" value="yes" type="radio" />
             <label htmlFor="guestHotelYes">Yes</label>
-            <input id="guestHotelYes" name="Yes" type="radio" />
+            <input id="guestHotelNo" name="guestHotel" value="no" type="radio" />
             <label htmlFor="guestHotelNo">Nah</label>
-            <input id="guestHotelNo" name="No" type="radio" />
           </div>
         </fieldset>
 
@@ -55,6 +55,9 @@ const Rsvp = () => (
             <textarea id="Details" name="guestDetails"></textarea>
           </div>
         </fieldset>
+
+        <input type="submit" value="Submit" />
+
       </form>
     </section>
   </>

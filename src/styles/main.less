@@ -6,6 +6,7 @@ body {
   margin: 0;
   background: #f9f9f9;
   font-family: @body-font;
+  text-rendering: optimizelegibility;
 }
 
 a {
@@ -27,6 +28,15 @@ h2 {
   border-bottom: 1px solid #d8d8d8;
   font-size: 2em;
   line-height: 1;
+}
+
+input[type=text],
+input[type=submit],
+button,
+textarea {
+  -webkit-appearance: none;
+  outline: none;
+  transition: @transition;
 }
 
 .layout {
@@ -63,7 +73,7 @@ h2 {
 }
 
 main {
-  padding: 0 40px;
+  padding: 0 40px 40px;
 }
 
 .information {
@@ -73,10 +83,12 @@ main {
 
   h3 {
     margin-bottom: 5px;
+    font-size: 1.3em;
   }
 
   p {
     margin-top: 0;
+    line-height: 1.2;
   }
 
   .detail {
@@ -129,31 +141,50 @@ main {
           font-size: .85em;
         }
       }
+
+      .event-name {
+        font-size: .9em;
+      }
     }
   }
 }
 
 #rsvp {
   fieldset {
+    margin-bottom: 15px;
     padding: 10px 0;
     border: none;
 
+    &:last-of-type {
+      margin-bottom: unset;
+    }
+
     .field-title {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      font-family: @header-font;
+      font-size: 1.1em;
     }
 
     input[type=text] {
       .input-text-fields();
-      width: 300px;
+      width: fill-available;
     }
 
-    input[type=radio] {
-      margin-right: 20px;
+    input[type=radio],
+    input[type=checkbox] {
+      margin-right: 5px;
+      margin-left: 20px;
+
+      &:first-of-type {
+        margin-left: unset;
+      }
     }
 
     textarea {
       .input-text-fields();
+      width: fill-available;
+      height: 120px;
     }
 
     .hidden-field {
@@ -162,6 +193,21 @@ main {
       width: 1px;
       height: 1px;
       overflow: hidden;
+    }
+  }
+
+  input[type=submit] {
+    padding: 5px 8px;
+    border: 1px solid @theme-color;
+    border-radius: 3px;
+    background: @theme-color;
+    color: white;
+    font-size: 1.1em;
+
+    &:hover {
+      background: white;
+      color: @theme-color;
+      cursor: pointer;
     }
   }
 }

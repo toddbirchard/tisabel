@@ -9,7 +9,7 @@ const Details = ({ data }) => {
   return (
     <>
       <section id="details">
-        <h2>Things to Know</h2>
+        <h2>{`You're Invited`}</h2>
         {categories.map(({ node }) => (
           <div className="detail" key={node.id}>
             <h3 className={node.name}>{node.name}</h3>

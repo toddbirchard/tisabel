@@ -1,9 +1,9 @@
 import React from "react"
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
-import { Itinerary, Rsvp, Details } from "../components"
+import { Itinerary, Rsvp, Details, Donate } from "../components"
 import "../styles/main.less"
 
 const Homepage = ({ data }) => {
@@ -25,9 +25,7 @@ const Homepage = ({ data }) => {
             <Details />
             <Itinerary />
             <Rsvp />
-            <div>
-              <h2>Gifts</h2>
-            </div>
+            <Donate />
           </div>
         </main>
       </Layout>
@@ -45,31 +43,26 @@ Homepage.propTypes = {
   }),
 }
 
-const HomepageQuery = props => (
-  <StaticQuery
-    query={graphql`
-      query homepage {
-        strapiHomepage {
-          title
-          cover_image {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          logo {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
+export const query = graphql`
+  query HomePageQuery {
+    strapiHomepage {
+      title
+      cover_image {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
           }
         }
       }
-    `}
-    render={data => <Homepage data={data} {...props} />}
-  />
-)
+      logo {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
 
-export default HomepageQuery
+export default Homepage
