@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
-import { Itinerary, Details, Rsvp } from "../components"
+import { Itinerary, Rsvp, Details } from "../components"
 import "../styles/main.less"
 
 const Homepage = ({ data }) => {
