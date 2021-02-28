@@ -9,7 +9,11 @@ const Event = ({ data }) => {
     <>
       <div className="event">
         <div className="event-detail">
-          <div className="event-time">{start_time && <span>{start_time}</span>} {end_time && <span>{` - ${end_time}`}</span> }</div>
+          <div className="event-time">
+            {start_time &&
+              <span>{start_time}</span>} {end_time && <span>{` - ${end_time}`}</span>
+            }
+          </div>
           <div className="event-location">{data.location}</div>
         </div>
         <div className="event-name">{data.Name}</div>

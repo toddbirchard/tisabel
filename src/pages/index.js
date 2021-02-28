@@ -6,16 +6,18 @@ import { Layout, Itinerary, Details, Rsvp } from "../components"
 import "../styles/main.less"
 
 const IndexPage = ({ data }) => {
-  const image = data.strapiHomepage.cover_image.childImageSharp.fluid
+  const heroImage = data.strapiHomepage.cover_image.childImageSharp.fluid
+  const logoImage = data.strapiHomepage.logo.childImageSharp.fluid
 
   return (
     <>
       <Layout>
         <section className="hero">
           <div className="hero-title">
+            <Img className="logo" fluid={logoImage} />
             <h1>{data.strapiHomepage.title}</h1>
           </div>
-          <Img fluid={image} />
+          <Img className="hero-image" fluid={heroImage} />
         </section>
         <main>
           <Itinerary />
@@ -34,6 +36,7 @@ IndexPage.propTypes = {
     strapiHomepage: PropTypes.shape({
       title: PropTypes.string.isRequired,
       cover_image: PropTypes.object.isRequired,
+      logo: PropTypes.object.isRequired,
     }),
   }),
 }
@@ -43,6 +46,13 @@ export const pageQuery = graphql`
     strapiHomepage {
       title
       cover_image {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      logo {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid
