@@ -1,37 +1,25 @@
 import React from "react"
 import { graphql } from 'gatsby'
-import Img from "gatsby-image"
 import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
-import { Itinerary, Rsvp, Donate } from "../components"
+import { Itinerary, Rsvp, Donate, Hero } from "../components"
 import "../styles/main.less"
 
-const Homepage = ({ data }) => {
-  const heroImage = data.strapiHomepage.cover_image.childImageSharp.fluid
-  // const logoImage = data.strapiHomepage.logo.childImageSharp.fluid
-
-  return (
-    <>
-      <Layout>
-        <section className="hero">
-          {/*<div className="hero-title">
-            <Img className="logo" fluid={logoImage} />
-            <h1>{data.strapiHomepage.title}</h1>
-          </div>*/}
-          <Img className="hero-image" fluid={heroImage} />
-        </section>
-        <main>
-          <div className="information">
-            {/*<Details />*/}
-            <Itinerary />
-            <Rsvp />
-            <Donate />
-          </div>
-        </main>
-      </Layout>
-    </>
-  )
-}
+const Homepage = ({ data }) => (
+  <>
+    <Layout>
+      <Hero homepage={data.strapiHomepage} />
+      <main>
+        <div className="information">
+          {/*<Details />*/}
+          <Itinerary />
+          <Rsvp />
+          <Donate />
+        </div>
+      </main>
+    </Layout>
+  </>
+)
 
 Homepage.propTypes = {
   data: PropTypes.shape({

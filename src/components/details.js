@@ -25,7 +25,6 @@ const Details = ({ data }) => {
   )
 }
 
-
 Details.propTypes = {
   data: PropTypes.shape({
     allStrapiInfoCategory: PropTypes.shape({
