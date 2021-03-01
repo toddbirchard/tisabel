@@ -1,8 +1,17 @@
 import React, { useRef } from "react"
+import { useForm } from "react-hook-form"
+import fetch from 'node-fetch'
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+    .join(`&`)
+}
 
 const Rsvp = () => {
   const formRefPartTwo = useRef()
   const formRefPartThree = useRef()
+  const { register, handleSubmit } = useForm()
 
   const handleRsvpConfirmation = (e) => {
     if (e.target.value == `yes`){
@@ -18,6 +27,14 @@ const Rsvp = () => {
       formRefPartThree.current.classList.add(`hidden`)
     }
   }
+  const onSubmit = data => {
+    fetch(`/`, {
+      method: `POST`,
+      headers: { 'Content-Type': `application/x-www-form-urlencoded` },
+      body: encode({ "form-name": `rsvp`, data }),
+    })
+      .catch(error => console.log(error))
+  }
   return(
     <>
       <section id="rsvp">
@@ -28,22 +45,23 @@ const Rsvp = () => {
           data-netlify="true"
           data-netlify-honeypot="streetAddress"
           method="post"
+          onSubmit={handleSubmit(onSubmit)}
         >
 
           <fieldset className="hidden-label">
             <span className="field-title">{`New wedding who dis?`}</span>
             <div className="input-group">
-              <label htmlFor="guestName" className="hidden-field">Name</label>
-              <input id="guestName" name="Name" type="text" placeholder="(Tell us your name)" />
+              <label htmlFor="name" className="hidden-field">Name</label>
+              <input id="guestName" name="name" type="text" placeholder="(Tell us your name)" ref={register} />
             </div>
           </fieldset>
 
           <fieldset>
             <span className="field-title">{`Are you coming or nah?`}</span>
             <div className="input-group">
-              <input id="guestRsvpYes" name="guestRsvp" value="yes" type="radio" onClick={e => handleRsvpConfirmation(e)} />
+              <input id="guestRsvpYes" name="guestRsvp" value="yes" type="radio" onClick={e => handleRsvpConfirmation(e)} ref={register} />
               <label htmlFor="guestRsvpYes">Yes</label>
-              <input id="guestRsvpNo" name="guestRsvp" value="no" type="radio" onClick={e => handleRsvpConfirmation(e)} />
+              <input id="guestRsvpNo" name="guestRsvp" value="no" type="radio" onClick={e => handleRsvpConfirmation(e)} ref={register} />
               <label htmlFor="guestRsvpNo">Nah</label>
             </div>
           </fieldset>
@@ -60,9 +78,9 @@ const Rsvp = () => {
             <fieldset>
               <span className="field-title">{`Are you traveling from out of town?`}</span>
               <div className="input-group">
-                <input id="guestTravelingYes" name="guestTraveling" value="yes" type="radio" onClick={e => handleTravelConfirmation(e)} />
+                <input id="guestTravelingYes" name="guestTraveling" value="yes" type="radio" onClick={e => handleTravelConfirmation(e)} ref={register} />
                 <label htmlFor="guestTravelingYes">Yep</label>
-                <input id="guestTravelingNo" name="guestTraveling" value="no" type="radio" onClick={e => handleTravelConfirmation(e)} />
+                <input id="guestTravelingNo" name="guestTraveling" value="no" type="radio" onClick={e => handleTravelConfirmation(e)} ref={register} />
                 <label htmlFor="guestTravelingNo">Nope</label>
               </div>
             </fieldset>
@@ -72,9 +90,9 @@ const Rsvp = () => {
             <fieldset>
               <span className="field-title">{`Need a hotel room?`}</span>
               <div className="input-group">
-                <input id="guestHotelYes" name="guestHotel" value="yes" type="radio" />
+                <input id="guestHotelYes" name="guestHotel" value="yes" type="radio" ref={register} />
                 <label htmlFor="guestHotelYes">Yes</label>
-                <input id="guestHotelNo" name="guestHotel" value="no" type="radio" />
+                <input id="guestHotelNo" name="guestHotel" value="no" type="radio" ref={register} />
                 <label htmlFor="guestHotelNo">No Thanks</label>
               </div>
             </fieldset>
