@@ -67,7 +67,7 @@ MetaData.propTypes = {
     meta_title: PropTypes.string.isRequired,
     meta_description: PropTypes.string.isRequired,
     canonical: PropTypes.string.isRequired,
-    share_image: PropTypes.string,
+    share_image: PropTypes.object,
   }),
 }
 

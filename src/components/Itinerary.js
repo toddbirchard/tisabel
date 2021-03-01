@@ -44,9 +44,9 @@ Itinerary.propTypes = {
               }),
             }),
           ),
+          fieldValue: PropTypes.string.isRequired,
         }),
       ),
-      fieldValue: PropTypes.string.isRequired,
     }),
   }),
 }

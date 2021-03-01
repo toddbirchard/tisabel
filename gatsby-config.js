@@ -4,7 +4,9 @@ require(`dotenv`).config({
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    /**
+     *  Source Plugins
+     */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -21,8 +23,14 @@ module.exports = {
         queryLimit: 1000,
       },
     },
+    /**
+     *  Transform Plugins
+     */
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    /**
+     *  Style Plugins
+     */
     {
       resolve: `gatsby-plugin-less`,
       options: {
@@ -45,6 +53,10 @@ module.exports = {
         },
       },
     },
+    /**
+     *  SEO Plugins
+     */
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -59,6 +71,18 @@ module.exports = {
         icon: `src/images/icon.png`,
       },
     },
+    /**
+     *  Analytics Plugins
+     */
+    {
+      resolve: `gatsby-plugin-gauges`,
+      options: {
+        siteId: process.env.GAUGES_SITE_ID,
+      },
+    },
+    /**
+     *  Misc Plugins
+     */
     `gatsby-plugin-offline`,
   ],
 }
