@@ -87,7 +87,7 @@ main {
 
   p {
     margin-top: 0;
-    line-height: 1.2;
+    line-height: 1.3;
   }
 
   .detail {
@@ -154,10 +154,6 @@ main {
     padding: 10px 0;
     border: none;
 
-    &:last-of-type {
-      margin-bottom: unset;
-    }
-
     .field-title {
       display: block;
       margin-bottom: 5px;
@@ -186,6 +182,14 @@ main {
       height: 120px;
     }
 
+    &.hidden-field {
+      clip: rect(1px, 1px, 1px, 1px);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
     &.hidden-label {
       label{
         clip: rect(1px, 1px, 1px, 1px);
@@ -209,6 +213,17 @@ main {
       background: white;
       color: @theme-color;
       cursor: pointer;
+    }
+  }
+
+  .rsvp-part-2,
+  .rsvp-part-3 {
+    transition: all 1 ease-out;
+
+    &.hidden {
+      height: 10px;
+      transform: scale(1, 0.01);
+      opacity: 0;
     }
   }
 }
