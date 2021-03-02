@@ -80,6 +80,17 @@ module.exports = {
       },
     },
     /**
+     *  Ecommerce Plugins
+     */
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: [`Product`, `Price`],
+        secretKey: process.env.STRIPE_API_KEY,
+        downloadFiles: true,
+      },
+    },
+    /**
      *  Analytics Plugins
      */
     {

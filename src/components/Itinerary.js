@@ -55,7 +55,7 @@ const ItineraryQuery = props => (
   <StaticQuery
     query={graphql`
       query eventItinerary {
-        allStrapiEvent(sort: {fields: [day, time], order: ASC}) {
+        allStrapiEvent(sort: {fields: [day, time], order: [ASC, DESC]}) {
           group(field: day) {
             edges {
               node {

@@ -1,10 +1,18 @@
-@import url("//hello.myfonts.net/count/3d5a4e");
+@import url('//hello.myfonts.net/count/3d5ce4');
 
 @font-face {
+  src: url('/webfonts/GilroyRegular.woff2') format('woff2'), url('/webfonts/GilroyRegular.woff') format('woff');
+  font-family: 'Gilroy-Regular';
+}
+@font-face {
   src: url('/webfonts/GilroyMedium.woff2') format('woff2'), url('/webfonts/GilroyMedium.woff') format('woff');
-  font-family: "Gilroy-Medium";
+  font-family: 'Gilroy-Medium';
+}
+@font-face {
+  src: url('/webfonts/MacklinTextMedium.woff2') format('woff2'), url('/webfonts/MacklinTextMedium.woff') format('woff');
+  font-family: 'MacklinText-Medium';
 }
 @font-face {
   src: url('/webfonts/MacklinTextLight.woff2') format('woff2'), url('/webfonts/MacklinTextLight.woff') format('woff');
-  font-family: "MacklinText-Light";
+  font-family: 'MacklinText-Light';
 }

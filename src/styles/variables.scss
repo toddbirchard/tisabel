@@ -8,8 +8,10 @@ $theme-color: #deab3b;
 $tablet-breakpoint: 800px;
 
 // Font Styles
-$body-font: "MacklinText-Light", Trebuchet, serif;
-$header-font: "Gilroy-Medium", Helvetica, Arial, sans-serif;
+$body-font: 'MacklinText-Light', Trebuchet, serif;
+$body-font-bold: 'MacklinText-Medium', Trebuchet, serif;
+$header-font: 'Gilroy-Medium', Helvetica, Arial, sans-serif;
+$label-font: 'Gilroy-Regular', Helvetica, Arial, sans-serif;
 
 // Misc
 $transition: all .3s ease-out;

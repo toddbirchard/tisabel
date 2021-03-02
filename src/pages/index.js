@@ -2,8 +2,10 @@ import React from "react"
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
-import { Itinerary, Rsvp, Donate, Hero } from "../components"
+import { Itinerary, Rsvp, Hero } from "../components"
 import { Details } from "../components/details"
+import { Registry } from "../components/registry"
+
 import "../styles/main.scss"
 
 const Homepage = ({ data }) => (
@@ -14,7 +16,7 @@ const Homepage = ({ data }) => (
         <Details />
         <Itinerary />
         <Rsvp />
-        <Donate />
+        <Registry />
       </main>
     </Layout>
   </>
