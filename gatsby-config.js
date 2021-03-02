@@ -32,12 +32,19 @@ module.exports = {
      *  Style Plugins
      */
     {
-      resolve: `gatsby-plugin-less`,
+      resolve: `gatsby-plugin-sass`,
       options: {
-        javascriptEnabled: true,
+        useResolveUrlLoader: true,
         postCssPlugins: [
+          require(`postcss-preset-env`)({
+            stage: 2,
+            features: {
+              "nesting-rules": true,
+            },
+          }),
           require(`cssnano`)({ preset: `default` }),
           require(`stylelint`),
+          require(`autoprefixer`),
         ],
       },
     },
@@ -57,6 +64,7 @@ module.exports = {
      *  SEO Plugins
      */
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -83,6 +91,7 @@ module.exports = {
     /**
      *  Misc Plugins
      */
+    `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-offline`,
   ],
 }

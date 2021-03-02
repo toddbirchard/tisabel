@@ -35,7 +35,7 @@ Itinerary.propTypes = {
           edges: PropTypes.arrayOf(
             PropTypes.shape({
               node:PropTypes.shape({
-                id: PropTypes.string.isRequired,
+                id: PropTypes.string,
                 Name: PropTypes.string.isRequired,
                 start: PropTypes.string.isRequired,
                 end: PropTypes.string,
@@ -59,10 +59,10 @@ const ItineraryQuery = props => (
           group(field: day) {
             edges {
               node {
+                id
                 Name
                 day(formatString: "MMMM Do")
                 location
-                id
                 start(formatString: "h:mma")
                 end(formatString: "h:mma")
               }

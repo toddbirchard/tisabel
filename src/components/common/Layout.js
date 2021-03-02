@@ -29,6 +29,7 @@ const LayoutQuery = props => (
               strapiSeo {
                 meta_title
                 meta_description
+                canonical
                 logo {
                   childImageSharp {
                     fluid {

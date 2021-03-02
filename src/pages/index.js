@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
 import { Itinerary, Rsvp, Donate, Hero } from "../components"
 import { Details } from "../components/details"
-import "../styles/main.less"
+import "../styles/main.scss"
 
 const Homepage = ({ data }) => (
   <>

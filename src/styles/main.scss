@@ -1,20 +1,18 @@
-@import './fonts.less';
-@import './variables.less';
-@import './mixins.less';
+@import 'fonts.scss', 'variables.scss', 'mixins.scss';
 
 body {
   margin: 0;
   background: #f9f9f9;
-  font-family: @body-font;
+  font-family: $body-font;
   text-rendering: optimizelegibility;
 }
 
 a {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
-h1, h2, h3, h4, h5{
-  font-family: @header-font;
+h1, h2, h3, h4, h5 {
+  font-family: $header-font;
   font-weight: normal;
 }
 
@@ -28,7 +26,7 @@ h2 {
   border-bottom: 1px solid #d8d8d8;
   font-size: 2em;
   line-height: 1;
-  @media(max-width: @tablet-breakpoint) {
+  @media(max-width: $tablet-breakpoint) {
     margin: 30px 0 20px;
   }
 }
@@ -38,7 +36,7 @@ button,
 textarea {
   -webkit-appearance: none;
   outline: none;
-  transition: @transition;
+  transition: $transition;
 }
 
 .layout {
@@ -63,7 +61,7 @@ main {
   display: grid;
   grid-template-columns: 3fr 2fr;
   padding: 0 40px 40px;
-  @media(max-width: @tablet-breakpoint) {
+  @media(max-width: $tablet-breakpoint) {
     grid-template-columns: 1fr;
     padding: 0 30px 30px;
   }
@@ -98,7 +96,7 @@ main {
     height: fit-content;
     margin-top: 40px;
     border: 1px solid #eaeaea;
-    @media(max-width: @tablet-breakpoint) {
+    @media(max-width: $tablet-breakpoint) {
       margin-top: 0;
     }
 
@@ -148,12 +146,12 @@ main {
     .field-title {
       display: block;
       margin-bottom: 5px;
-      font-family: @header-font;
+      font-family: $header-font;
       font-size: 1.1em;
     }
 
     input[type=text] {
-      .input-text-fields();
+      @include input-text-fields();
       width: fill-available;
     }
 
@@ -168,7 +166,7 @@ main {
     }
 
     textarea {
-      .input-text-fields();
+      @include input-text-fields();
       width: fill-available;
       height: 120px;
     }
@@ -194,15 +192,15 @@ main {
 
   .submit {
     padding: 6px 10px;
-    border: 1px solid @theme-color;
+    border: 1px solid $theme-color;
     border-radius: 3px;
-    background: @theme-color;
+    background: $theme-color;
     color: white;
     font-size: 1em;
 
     &:hover {
       background: white;
-      color: @theme-color;
+      color: $theme-color;
       cursor: pointer;
     }
   }
@@ -215,6 +213,7 @@ main {
       height: 1px;
       transform: scale(1, 0.01);
       opacity: 0;
+      transition: all 1 ease-out;
     }
   }
 }

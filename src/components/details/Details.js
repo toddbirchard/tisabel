@@ -30,11 +30,11 @@ Details.propTypes = {
     allStrapiInfoCategory: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string.isRequired,
+          id: PropTypes.string,
           name: PropTypes.string.isRequired,
           infos: PropTypes.arrayOf(
             PropTypes.shape({
-              id: PropTypes.string.isRequired,
+              id: PropTypes.string,
               description: PropTypes.string,
             }),
           ),

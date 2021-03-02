@@ -1,0 +1,32 @@
+@mixin input-text-fields() {
+  @include input-field-interactions();
+  padding: 10px;
+  border: 1px solid #d6dde9;
+  border-radius: 3px;
+  background: #f7f8fa;
+}
+
+@mixin input-field-interactions() {
+  -webkit-appearance: none;
+  transition: $transition;
+
+  &::placeholder {
+    color: #a2a7ba;
+    opacity: 1;
+  }
+
+  &:hover {
+    border-color: scale-color($theme-color, $lightness: 30%);
+    background: scale-color($theme-color, $lightness: 90%);
+    cursor: text;
+
+    &::placeholder {
+      color: scale-color($theme-color, $lightness: 30%);
+    }
+  }
+
+  &:focus {
+    border-color: scale-color($theme-color, $lightness: 30%);
+    background: white;
+  }
+}
