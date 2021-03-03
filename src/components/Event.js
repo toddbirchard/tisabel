@@ -1,5 +1,9 @@
 import React from "react"
 import PropTypes from 'prop-types'
+import Moment from 'react-moment'
+import 'moment-timezone'
+
+Moment.globalTimezone = `America/New_York`
 
 const Event = ({ data }) => {
   const start_time = data.start
@@ -11,7 +15,10 @@ const Event = ({ data }) => {
         <div className="event-detail">
           <div className="event-time">
             {start_time &&
-              <span>{start_time}</span>} {end_time && <span>{` - ${end_time}`}</span>
+              <Moment format="h:mma" element="span">{start_time}</Moment>
+            }
+            {end_time &&
+              <span>{` - `}<Moment format="h:mma" element="span">{end_time}</Moment></span>
             }
           </div>
           <div className="event-location">{data.location}</div>

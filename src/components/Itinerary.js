@@ -63,8 +63,8 @@ const ItineraryQuery = props => (
                 Name
                 day(formatString: "MMMM Do")
                 location
-                start(formatString: "h:mma")
-                end(formatString: "h:mma")
+                start
+                end
               }
             }
             fieldValue

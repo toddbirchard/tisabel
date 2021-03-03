@@ -55,6 +55,7 @@
     "gatsby-source-stripe": "^3.2.1",
     "gatsby-transformer-sharp": "^3.0.0",
     "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
     "netlify-plugin-inline-source": "^1.0.4",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
