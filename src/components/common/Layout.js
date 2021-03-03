@@ -25,30 +25,24 @@ Layout.propTypes = {
 const LayoutQuery = props => (
   <StaticQuery
     query={graphql`
-            query seoQuery {
-              strapiSeo {
-                meta_title
-                meta_description
-                canonical
-                logo {
-                  childImageSharp {
-                    fluid {
-                      originalImg
-                      srcSet
-                    }
-                  }
-                }
-                share_image {
-                  childImageSharp {
-                    fluid {
-                      originalImg
-                      srcSet
-                    }
-                  }
-                }
-              }
+      query seoQuery {
+        strapiSeo {
+          meta_title
+          meta_description
+          canonical
+          logo {
+            childImageSharp {
+              gatsbyImageData
             }
-        `}
+          }
+          share_image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+      }
+      `}
     render={data => <Layout data={data} {...props} />}
   />
 )

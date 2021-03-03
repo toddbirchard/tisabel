@@ -1,2 +1,2 @@
-export { default as Registry } from './Registry'
+export { default as RegistryList } from './RegistryList'
 export { default as RegistryItem } from './RegistryItem'

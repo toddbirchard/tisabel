@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
 import { Itinerary, Rsvp, Hero } from "../components"
 import { Details } from "../components/details"
-import { Registry } from "../components/registry"
+import { RegistryList } from "../components/registry"
 
 import "../styles/main.scss"
 
@@ -16,7 +16,7 @@ const Homepage = ({ data }) => (
         <Details />
         <Itinerary />
         <Rsvp />
-        <Registry />
+        <RegistryList />
       </main>
     </Layout>
   </>
@@ -27,7 +27,6 @@ Homepage.propTypes = {
     strapiHomepage: PropTypes.shape({
       title: PropTypes.string.isRequired,
       cover_image: PropTypes.object.isRequired,
-      logo: PropTypes.object.isRequired,
     }),
   }),
 }
@@ -38,16 +37,11 @@ export const query = graphql`
       title
       cover_image {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      logo {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(
+            formats: [AUTO, WEBP, JPG]
+            placeholder: BLURRED
+            width: 1050
+          )
         }
       }
     }

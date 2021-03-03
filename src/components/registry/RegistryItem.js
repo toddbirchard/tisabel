@@ -1,5 +1,6 @@
 import React from "react"
-import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 // import getStripe from "../common/Stripe"
 
 
@@ -15,6 +16,9 @@ const formatPrice = (amount, currency) => {
 
 const RegistryItem = ({ data }) => {
   // const [loading, setLoading] = useState(false)
+  const image = getImage(data.product.localFiles[0])
+  console.log(data.product.localFiles[0])
+  console.log(image)
 
   const handleSubmit = e => console.log(e)
 
@@ -50,7 +54,14 @@ const RegistryItem = ({ data }) => {
               {formatPrice(data.unit_amount, data.currency)}
             </span>
             <p>{data.product.description}</p>
-            <Img fixed={data.product.localFiles[0].childImageSharp.fixed}/>
+            <GatsbyImage
+              image={image}
+              placeholder="blurred"
+              layout="fixed"
+              width={120}
+              height={120}
+              alt={data.product.name}
+            />
           </label>
         </fieldset>
         <button >
@@ -60,5 +71,26 @@ const RegistryItem = ({ data }) => {
     </div>
   )
 }
+
+RegistryItem.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    unit_amount: PropTypes.number.isRequired,
+    currency: PropTypes.string.isRequired,
+    product:PropTypes.shape({
+      description: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+      statement_descriptor: PropTypes.string.isRequired,
+      localFiles: PropTypes.arrayOf(
+        PropTypes.shape({
+          childImageSharp: PropTypes.object.isRequired,
+        }),
+      ),
+    }),
+  }),
+}
+
+
 
 export default RegistryItem
