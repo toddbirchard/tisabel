@@ -17,8 +17,6 @@ const formatPrice = (amount, currency) => {
 const RegistryItem = ({ data }) => {
   // const [loading, setLoading] = useState(false)
   const image = getImage(data.product.localFiles[0])
-  console.log(data.product.localFiles[0])
-  console.log(image)
 
   const handleSubmit = e => console.log(e)
 
