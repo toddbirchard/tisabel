@@ -44,6 +44,14 @@ export const query = graphql`
           )
         }
       }
+      cover_image_mobile {
+        childImageSharp {
+          gatsbyImageData(
+            formats: [AUTO, WEBP, JPG]
+            placeholder: BLURRED
+          )
+        }
+      }
     }
   }
 `

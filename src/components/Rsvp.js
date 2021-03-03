@@ -49,11 +49,11 @@ const Rsvp = () => {
           {({ loading, error, success }) => (
             <>
               {success &&
-                <div>Thank you for contacting us!</div>
+                <div className="success response">{`Thanks for letting us know! LET'S GET WASTED!`}</div>
               }
 
               {error &&
-                <div>Your information was not sent. Please try again later.</div>
+                <div className="error response">Your information was not sent. Please try again later.</div>
               }
 
               {!loading && !success &&
@@ -158,17 +158,6 @@ const Rsvp = () => {
                       <input id="streetAddress" name="form-name" type="hidden" />
                     </fieldset>
                   </div>
-
-                  <fieldset className="hidden-label">
-                    <span className="field-title">{`Anything else we should know?`}</span>
-                    <div className="input-group">
-                      <label htmlFor="Details">Details</label>
-                      <textarea
-                        id="Details"
-                        name="guestDetails"
-                      ></textarea>
-                    </div>
-                  </fieldset>
 
                   <button type="submit" className="submit">Submit RSVP</button>
                 </>
