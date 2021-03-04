@@ -1,9 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
-
-// import getStripe from "../common/Stripe"
+import getStripe from '../common/Stripe'
 
 
 const formatPrice = (amount, currency) => {
@@ -17,29 +16,29 @@ const formatPrice = (amount, currency) => {
 }
 
 const RegistryItem = ({ data }) => {
-  // const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const image = getImage(data.product.localFiles[0])
+  console.log(data)
 
-  const handleSubmit = e => console.log(e)
 
-  {/* const handleSubmit = async event => {
+  const handleSubmit = async event => {
     event.preventDefault()
     setLoading(true)
 
-    const price = event.target.priceSelect
+    const price = data.id
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
       mode: `payment`,
       lineItems: [{ price, quantity: 1 }],
-      successUrl: `/page-2/`,
-      cancelUrl: `/advanced`,
+      successUrl: `http://localhost:8000/page-2/`,
+      cancelUrl: `http://localhost:8000/advanced`,
     })
 
     if (error) {
       console.warn(`Error:`, error)
       setLoading(false)
     }
-  }*/}
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -52,7 +51,7 @@ const RegistryItem = ({ data }) => {
             </span>
           </div>
           <p className="gift-description">{data.product.description}</p>
-          <button><span>Contribute</span> <IoArrowForwardCircleOutline /></button>
+          <button disabled={loading}><span>Contribute</span> <IoArrowForwardCircleOutline /></button>
         </div>
         <GatsbyImage
           image={image}
