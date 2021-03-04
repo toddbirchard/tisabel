@@ -29,8 +29,8 @@ const RegistryItem = ({ data }) => {
     const { error } = await stripe.redirectToCheckout({
       mode: `payment`,
       lineItems: [{ price, quantity: 1 }],
-      successUrl: siteUrl + `/success/`,
-      cancelUrl: siteUrl + `/cancel/`,
+      successUrl: siteUrl,
+      cancelUrl: siteUrl,
     })
 
     if (error) {
