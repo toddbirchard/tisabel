@@ -13,10 +13,14 @@ const Homepage = ({ data }) => (
     <Layout>
       <Hero homepage={data.strapiHomepage} />
       <main>
-        <Details />
-        <Itinerary />
-        <Rsvp />
-        <RegistryList />
+        <div className="main-content">
+          <Details />
+          <Rsvp />
+        </div>
+        <aside>
+          <Itinerary />
+          <RegistryList />
+        </aside>
       </main>
     </Layout>
   </>

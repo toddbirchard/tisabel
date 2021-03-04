@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { IoArrowForwardCircleOutline } from 'react-icons/io5'
+
 // import getStripe from "../common/Stripe"
 
 
@@ -40,33 +42,30 @@ const RegistryItem = ({ data }) => {
   }*/}
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <fieldset style={{ border: `none` }}>
-          <legend>
-            <h4>{data.product.name}</h4>
-          </legend>
-          <label>
-            Price{` `}
+    <form onSubmit={handleSubmit}>
+      <fieldset style={{ border: `none` }} className="registry-gift">
+        <div className="gift-details">
+          <div className="gift-headline">
+            <label className="registry-gift-title">{data.product.name}</label>
             <span name="price">
               {formatPrice(data.unit_amount, data.currency)}
             </span>
-            <p>{data.product.description}</p>
-            <GatsbyImage
-              image={image}
-              placeholder="blurred"
-              layout="fixed"
-              width={120}
-              height={120}
-              alt={data.product.name}
-            />
-          </label>
-        </fieldset>
-        <button >
-          BUY ME
-        </button>
-      </form>
-    </div>
+          </div>
+          <p className="gift-description">{data.product.description}</p>
+          <button><span>Contribute</span> <IoArrowForwardCircleOutline /></button>
+        </div>
+        <GatsbyImage
+          image={image}
+          placeholder="blurred"
+          layout="fixed"
+          width={120}
+          height={120}
+          alt={data.product.name}
+          className="registry-image"
+        />
+      </fieldset>
+
+    </form>
   )
 }
 

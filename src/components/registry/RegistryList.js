@@ -9,13 +9,11 @@ const RegistryList = ({ data }) => {
 
   return (
     <>
-      <section id="donate">
-        <h2>Contribute</h2>
-        <div className="item">
-          {items.map(({ node }) => (
-            <RegistryItem data={node} key={node.id} />
-          ))}
-        </div>
+      <section id="registry">
+        <h2 className="registry-title">Contribute</h2>
+        {items.map(({ node }) => (
+          <RegistryItem data={node} key={node.id} />
+        ))}
       </section>
     </>
   )
@@ -50,7 +48,10 @@ const RegistryListQuery = props => (
   <StaticQuery
     query={graphql`
       query registryQuery {
-        allStripePrice(filter: {product: {statement_descriptor: {eq: "Todd & Isabel"}}}) {
+        allStripePrice(
+          filter: {product: {statement_descriptor: {eq: "Todd & Isabel"}}}
+          sort: {fields: unit_amount, order: ASC}
+        ) {
           edges {
             node {
               id
@@ -64,8 +65,9 @@ const RegistryListQuery = props => (
                 localFiles {
                   childImageSharp {
                     gatsbyImageData(
-                      width: 200
-                      placeholder: BLURRED
+                      width: 130,
+                      height: 80,
+                      placeholder: BLURRED,
                       formats: [AUTO, WEBP, JPG]
                     )
                   }

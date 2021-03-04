@@ -14,9 +14,7 @@ const Details = ({ data }) => {
           <div className="detail" key={node.id}>
             <h3 className={node.name}>{node.name}</h3>
             {node.infos.map(({ description, id }) => (
-              <p key={id}>
-                <ReactMarkdown>{description}</ReactMarkdown>
-              </p>
+              <ReactMarkdown key={id}>{description}</ReactMarkdown>
             ))}
           </div>
         ))}
