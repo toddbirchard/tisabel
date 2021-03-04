@@ -18,8 +18,7 @@ const formatPrice = (amount, currency) => {
 const RegistryItem = ({ data }) => {
   const [loading, setLoading] = useState(false)
   const image = getImage(data.product.localFiles[0])
-  console.log(data)
-
+  const siteUrl = process.env.GATSBY_ROOT_URL
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -30,8 +29,8 @@ const RegistryItem = ({ data }) => {
     const { error } = await stripe.redirectToCheckout({
       mode: `payment`,
       lineItems: [{ price, quantity: 1 }],
-      successUrl: `http://localhost:8000/page-2/`,
-      cancelUrl: `http://localhost:8000/advanced`,
+      successUrl: siteUrl + `/success/`,
+      cancelUrl: siteUrl + `/cancel/`,
     })
 
     if (error) {
