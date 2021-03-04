@@ -1,5 +1,5 @@
 import React, { useRef } from "react"
-import NetlifyForm from 'react-netlify-form'
+import { NetlifyForm, Honeypot } from 'react-netlify-forms'
 import fetch from 'node-fetch'
 
 function encode(data) {
@@ -43,10 +43,11 @@ const Rsvp = () => {
         <h2>RSVP</h2>
         <NetlifyForm
           name="rsvp"
+          action="/"
           honeypotName="streetAddress"
           onSubmit={handleSubmit}
         >
-          {({ loading, error, success }) => (
+          {({ handleChange, error, success }) => (
             <>
               {success &&
                 <div className="success response">{`Thanks for letting us know! LET'S GET WASTED!`}</div>
@@ -56,118 +57,121 @@ const Rsvp = () => {
                 <div className="error response">Your information was not sent. Please try again later.</div>
               }
 
-              {!loading && !success &&
-                <>
-                  <fieldset className="hidden-label">
-                    <span className="field-title">{`New wedding who dis?`}</span>
+              <>
+                <Honeypot />
+                <fieldset className="hidden-label">
+                  <span className="field-title">{`New wedding who dis?`}</span>
+                  <div className="input-group">
+                    <label htmlFor="name" className="hidden-field">Name</label>
+                    <input
+                      id="guestName"
+                      name="name"
+                      type="text"
+                      placeholder="(Tell us your name)"
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <span className="field-title">{`Are you coming or nah?`}</span>
+                  <div className="input-group">
+                    <input
+                      id="guestRsvpYes"
+                      name="guestRsvp"
+                      value="yes"
+                      type="radio"
+                      onClick={e => handleRsvpConfirmation(e)}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label htmlFor="guestRsvpYes">Yes</label>
+                    <input
+                      id="guestRsvpNo"
+                      name="guestRsvp"
+                      value="no"
+                      type="radio"
+                      onClick={e => handleRsvpConfirmation(e)}
+                      onChange={handleChange}
+                      required
+                    />
+                    <label htmlFor="guestRsvpNo">Nah</label>
+                  </div>
+                </fieldset>
+
+                <div className="rsvp-part-2 hidden" ref={formRefPartTwo}>
+                  <fieldset>
+                    <span className="field-title">{`Bringing a +1?`}</span>
                     <div className="input-group">
-                      <label htmlFor="name" className="hidden-field">Name</label>
                       <input
-                        id="guestName"
-                        name="name"
-                        type="text"
-                        placeholder="(Tell us your name)"
-                        required
+                        id="guestPlusOne"
+                        name="guestPlusOne"
+                        type="checkbox"
+                        value="+1 confirmed"
+                        onChange={handleChange}
                       />
+                      <label htmlFor="guestPlusOne">{`Yes, I'm bringing someone.`}</label>
                     </div>
                   </fieldset>
 
                   <fieldset>
-                    <span className="field-title">{`Are you coming or nah?`}</span>
+                    <span className="field-title">{`Are you traveling from out of town?`}</span>
                     <div className="input-group">
                       <input
-                        id="guestRsvpYes"
-                        name="guestRsvp"
+                        id="guestTravelingYes"
+                        name="guestTraveling"
                         value="yes"
                         type="radio"
-                        onClick={e => handleRsvpConfirmation(e)}
-                        required
+                        onClick={e => handleTravelConfirmation(e)}
+                        onChange={handleChange}
                       />
-                      <label htmlFor="guestRsvpYes">Yes</label>
+                      <label htmlFor="guestTravelingYes">Yep</label>
                       <input
-                        id="guestRsvpNo"
-                        name="guestRsvp"
+                        id="guestTravelingNo"
+                        name="guestTraveling"
                         value="no"
                         type="radio"
-                        onClick={e => handleRsvpConfirmation(e)}
-                        required
+                        onClick={e => handleTravelConfirmation(e)}
+                        onChange={handleChange}
                       />
-                      <label htmlFor="guestRsvpNo">Nah</label>
+                      <label htmlFor="guestTravelingNo">Nope</label>
                     </div>
                   </fieldset>
+                </div>
 
-                  <div className="rsvp-part-2 hidden" ref={formRefPartTwo}>
-                    <fieldset>
-                      <span className="field-title">{`Bringing a +1?`}</span>
-                      <div className="input-group">
-                        <input
-                          id="guestPlusOne"
-                          name="guestPlusOne"
-                          type="checkbox"
-                          value="+1 confirmed"
-                        />
-                        <label htmlFor="guestPlusOne">{`Yes, I'm bringing someone.`}</label>
-                      </div>
-                    </fieldset>
+                <div className="rsvp-part-3 hidden" ref={formRefPartThree}>
+                  <fieldset>
+                    <span className="field-title">{`Need a hotel room?`}</span>
+                    <div className="input-group">
+                      <input
+                        id="guestHotelYes"
+                        name="guestHotel"
+                        value="yes"
+                        type="radio"
+                        onChange={handleChange}
+                      />
+                      <label htmlFor="guestHotelYes">Yes</label>
+                      <input
+                        id="guestHotelNo"
+                        name="guestHotel"
+                        value="no"
+                        type="radio"
+                        onChange={handleChange}
+                      />
+                      <label htmlFor="guestHotelNo">No Thanks</label>
+                    </div>
+                  </fieldset>
+                </div>
 
-                    <fieldset>
-                      <span className="field-title">{`Are you traveling from out of town?`}</span>
-                      <div className="input-group">
-                        <input
-                          id="guestTravelingYes"
-                          name="guestTraveling"
-                          value="yes"
-                          type="radio"
-                          onClick={e => handleTravelConfirmation(e)}
-                        />
-                        <label htmlFor="guestTravelingYes">Yep</label>
-                        <input
-                          id="guestTravelingNo"
-                          name="guestTraveling"
-                          value="no"
-                          type="radio"
-                          onClick={e => handleTravelConfirmation(e)}
-                        />
-                        <label htmlFor="guestTravelingNo">Nope</label>
-                      </div>
-                    </fieldset>
-                  </div>
+                <button type="submit" className="submit">Submit RSVP</button>
+              </>
 
-                  <div className="rsvp-part-3 hidden" ref={formRefPartThree}>
-                    <fieldset>
-                      <span className="field-title">{`Need a hotel room?`}</span>
-                      <div className="input-group">
-                        <input
-                          id="guestHotelYes"
-                          name="guestHotel"
-                          value="yes"
-                          type="radio"
-                        />
-                        <label htmlFor="guestHotelYes">Yes</label>
-                        <input
-                          id="guestHotelNo"
-                          name="guestHotel"
-                          value="no"
-                          type="radio"
-                        />
-                        <label htmlFor="guestHotelNo">No Thanks</label>
-                      </div>
-                    </fieldset>
-
-                    <fieldset className="hidden-field">
-                      <input id="streetAddress" name="form-name" type="hidden" />
-                    </fieldset>
-                  </div>
-
-                  <button type="submit" className="submit">Submit RSVP</button>
-                </>
-              }
             </>
           )}
         </NetlifyForm>
       </section>
     </>
   )}
-
 
 export default Rsvp
