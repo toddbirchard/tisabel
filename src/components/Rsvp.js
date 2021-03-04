@@ -46,6 +46,9 @@ const Rsvp = () => {
           action="/"
           honeypotName="streetAddress"
           onSubmit={handleSubmit}
+          onSuccess={(response, context) => {
+            context.formRef.current.reset()
+          }}
         >
           {({ handleChange, error, success }) => (
             <>
@@ -166,7 +169,6 @@ const Rsvp = () => {
 
                 <button type="submit" className="submit">Submit RSVP</button>
               </>
-
             </>
           )}
         </NetlifyForm>
