@@ -15,16 +15,16 @@ const formatPrice = (amount, currency) => {
   return numberFormat.format(price)
 }
 
-const RegistryItem = ({ data }) => {
+const RegistryItem = ({ item }) => {
   const [loading, setLoading] = useState(false)
-  const image = getImage(data.product.localFiles[0])
+  const image = getImage(item.product.localFiles[0])
   const siteUrl = process.env.GATSBY_ROOT_URL
 
   const handleSubmit = async event => {
     event.preventDefault()
     setLoading(true)
 
-    const price = data.id
+    const price = item.id
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
       mode: `payment`,
@@ -41,16 +41,16 @@ const RegistryItem = ({ data }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <fieldset style={{ border: `none` }} className="registry-gift">
+      <button disabled={loading} className="registry-gift">
         <div className="gift-details">
           <div className="gift-headline">
-            <label className="registry-gift-title">{data.product.name}</label>
+            <label className="registry-gift-title">{item.product.name}</label>
             <span name="price">
-              {formatPrice(data.unit_amount, data.currency)}
+              {formatPrice(item.unit_amount, item.currency)}
             </span>
           </div>
-          <p className="gift-description">{data.product.description}</p>
-          <button disabled={loading}><span>Contribute</span> <IoArrowForwardCircleOutline /></button>
+          <p className="gift-description">{item.product.description}</p>
+          <div className="submit-button"><span>Contribute</span> <IoArrowForwardCircleOutline /></div>
         </div>
         <GatsbyImage
           image={image}
@@ -58,17 +58,16 @@ const RegistryItem = ({ data }) => {
           layout="fixed"
           width={120}
           height={120}
-          alt={data.product.name}
+          alt={item.product.name}
           className="registry-image"
         />
-      </fieldset>
-
+      </button>
     </form>
   )
 }
 
 RegistryItem.propTypes = {
-  data: PropTypes.shape({
+  item: PropTypes.shape({
     id: PropTypes.string.isRequired,
     unit_amount: PropTypes.number.isRequired,
     currency: PropTypes.string.isRequired,

@@ -39,7 +39,7 @@ const Rsvp = () => {
 
   return (
     <>
-      <section id="rsvp">
+      <section id="rsvp" className="main component">
         <h2>RSVP</h2>
         <NetlifyForm
           name="rsvp"

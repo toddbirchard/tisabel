@@ -9,10 +9,10 @@ const RegistryList = ({ data }) => {
 
   return (
     <>
-      <section id="registry">
+      <section id="registry" className="sidebar component">
         <h2 className="registry-title">Contribute</h2>
         {items.map(({ node }) => (
-          <RegistryItem data={node} key={node.id} />
+          <RegistryItem item={node} key={node.id} />
         ))}
       </section>
     </>
@@ -24,21 +24,23 @@ RegistryList.propTypes = {
     allStripePrice: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          unit_amount: PropTypes.number.isRequired,
-          currency: PropTypes.string.isRequired,
-          product:PropTypes.shape({
-            description: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
+          node: PropTypes.shape({
             id: PropTypes.string.isRequired,
-            statement_descriptor: PropTypes.string.isRequired,
-            localFiles: PropTypes.arrayOf(
-              PropTypes.shape({
-                childImageSharp: PropTypes.object.isRequired,
-              }),
-            ),
+            unit_amount: PropTypes.number.isRequired,
+            currency: PropTypes.string.isRequired,
+            product:PropTypes.shape({
+              description: PropTypes.string.isRequired,
+              name: PropTypes.string.isRequired,
+              id: PropTypes.string.isRequired,
+              statement_descriptor: PropTypes.string.isRequired,
+              localFiles: PropTypes.arrayOf(
+                PropTypes.shape({
+                  childImageSharp: PropTypes.object.isRequired,
+                }),
+              ),
+            }),
           }),
-        })
+        }),
       ),
     }),
   }),

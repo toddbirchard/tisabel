@@ -8,7 +8,7 @@ const Details = ({ data }) => {
 
   return (
     <>
-      <section id="details">
+      <section id="details" className="main component">
         <h2>{`You're Invited`}</h2>
         {categories.map(({ node }) => (
           <div className="detail" key={node.id}>
@@ -28,14 +28,16 @@ Details.propTypes = {
     allStrapiInfoCategory: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
-          id: PropTypes.string,
-          name: PropTypes.string.isRequired,
-          infos: PropTypes.arrayOf(
-            PropTypes.shape({
-              id: PropTypes.string,
-              description: PropTypes.string,
-            }),
-          ),
+          node: PropTypes.shape({
+            id: PropTypes.string,
+            name: PropTypes.string.isRequired,
+            infos: PropTypes.arrayOf(
+              PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                description: PropTypes.string,
+              }),
+            ),
+          }),
         }),
       ),
     }),

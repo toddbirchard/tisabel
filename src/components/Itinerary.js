@@ -9,7 +9,7 @@ const Itinerary = ({ data }) => {
 
   return (
     <>
-      <section id="itinerary">
+      <section id="itinerary" className="sidebar component">
         <div className="event-day">
           <div className="date">{first_day.edges[1].node.day}</div>
           {first_day.edges.map(({ node }) => (
