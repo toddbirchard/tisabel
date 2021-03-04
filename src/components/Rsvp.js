@@ -83,7 +83,7 @@ const Rsvp = () => {
                     <input
                       id="guestRsvpYes"
                       name="guestRsvp"
-                      value="yes"
+                      value={`I'm coming`}
                       type="radio"
                       onClick={e => handleRsvpConfirmation(e)}
                       onChange={handleChange}
@@ -93,7 +93,7 @@ const Rsvp = () => {
                     <input
                       id="guestRsvpNo"
                       name="guestRsvp"
-                      value="no"
+                      value={`I'm not coming`}
                       type="radio"
                       onClick={e => handleRsvpConfirmation(e)}
                       onChange={handleChange}
@@ -111,7 +111,7 @@ const Rsvp = () => {
                         id="guestPlusOne"
                         name="guestPlusOne"
                         type="checkbox"
-                        value="+1 confirmed"
+                        value={`I'm bringing a +1`}
                         onChange={handleChange}
                       />
                       <label htmlFor="guestPlusOne">{`Yes, I'm bringing someone.`}</label>
@@ -124,7 +124,7 @@ const Rsvp = () => {
                       <input
                         id="guestTravelingYes"
                         name="guestTraveling"
-                        value="yes"
+                        value={`Yes I'm traveling`}
                         type="radio"
                         onClick={e => handleTravelConfirmation(e)}
                         onChange={handleChange}
@@ -133,7 +133,7 @@ const Rsvp = () => {
                       <input
                         id="guestTravelingNo"
                         name="guestTraveling"
-                        value="no"
+                        value={`No, I'm not traveling`}
                         type="radio"
                         onClick={e => handleTravelConfirmation(e)}
                         onChange={handleChange}
@@ -150,7 +150,7 @@ const Rsvp = () => {
                       <input
                         id="guestHotelYes"
                         name="guestHotel"
-                        value="yes"
+                        value={`I'd like a hotel room`}
                         type="radio"
                         onChange={handleChange}
                       />
@@ -158,7 +158,7 @@ const Rsvp = () => {
                       <input
                         id="guestHotelNo"
                         name="guestHotel"
-                        value="no"
+                        value={`I don't need a hotel room`}
                         type="radio"
                         onChange={handleChange}
                       />
