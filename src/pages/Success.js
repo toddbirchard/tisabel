@@ -1,5 +1,7 @@
 import React from "react"
 import { Layout } from "../components/common"
+import "../styles/success.scss"
+
 
 const SuccessPage = () => (
   <Layout>
