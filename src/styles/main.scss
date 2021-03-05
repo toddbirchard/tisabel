@@ -269,7 +269,11 @@ main {
   }
 
   .hidden-form {
-    opacity: 0;
+    fieldset,
+    button {
+      opacity: 0;
+    }
+
   }
 }
 

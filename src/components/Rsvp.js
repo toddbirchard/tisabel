@@ -9,7 +9,6 @@ function encode(data) {
 }
 
 const Rsvp = () => {
-  const formRefPartOne = useRef()
   const formRefPartTwo = useRef()
   const formRefPartThree = useRef()
 
@@ -48,9 +47,7 @@ const Rsvp = () => {
           onSubmit={handleSubmit}
           onSuccess={(response, context) => {
             context.formRef.current.reset()
-            formRefPartOne.classList.add( `hidden-form` )
-            formRefPartTwo.classList.add( `hidden-form` )
-            formRefPartThree.classList.add( `hidden-form` )
+            context.formRef.classList.addClass( `hidden-form` )
           }}
         >
           {({ handleChange, error, success }) => (
@@ -68,7 +65,7 @@ const Rsvp = () => {
               }
 
               <>
-                <div className="rsvp-part-1 hidden" ref={formRefPartOne}>
+                <div className="rsvp-part-1 hidden">
                   <Honeypot />
                   <fieldset className="hidden-label">
                     <span className="field-title">{`New wedding who dis?`}</span>
