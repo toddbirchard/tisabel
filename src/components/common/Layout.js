@@ -4,14 +4,18 @@ import { StaticQuery, graphql } from 'gatsby'
 import MetaData from "./MetaData"
 
 
-const Layout = ({ data, children }) => (
-  <>
-    <MetaData seo={data.strapiSeo} />
-    <div className="layout">
-      {children}
-    </div>
-  </>
-)
+const Layout = ({ data, template, children }) => {
+  const pageClasses = template && template
+
+  return (
+    <>
+      <MetaData seo={data.strapiSeo} pageClasses={pageClasses} />
+      <div className="layout">
+        {children}
+      </div>
+    </>
+  )
+}
 
 Layout.propTypes = {
   data: PropTypes.shape({
@@ -20,6 +24,7 @@ Layout.propTypes = {
       meta_description: PropTypes.string,
     }),
   }),
+  template: PropTypes.string,
 }
 
 const LayoutQuery = props => (

@@ -4,12 +4,13 @@ import { Helmet } from "react-helmet"
 import { getImage } from "gatsby-plugin-image"
 
 
-const MetaData = ({ seo }) => {
+const MetaData = ({ seo, pageClasses }) => {
   const share_image = getImage(seo.share_image)
 
   return(
     <Helmet>
-      <html lang="en-US" />
+      <html lang="en-US" className={pageClasses} />
+      <body className={pageClasses} />
       <title>{seo.meta_title}</title>
       <meta name="description" content={seo.meta_description}/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -75,6 +76,7 @@ MetaData.propTypes = {
     canonical: PropTypes.string.isRequired,
     share_image: PropTypes.object,
   }),
+  pageClasses: PropTypes.string,
 }
 
 export default MetaData
