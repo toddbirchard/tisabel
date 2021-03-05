@@ -47,7 +47,7 @@ const Rsvp = () => {
           onSubmit={handleSubmit}
           onSuccess={(response, context) => {
             context.formRef.current.reset()
-            context.formRef.classList.addClass( `hidden-form` )
+            context.formRef.classList.add( `hidden-form` )
           }}
         >
           {({ handleChange, error, success }) => (
