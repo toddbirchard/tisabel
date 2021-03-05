@@ -9,6 +9,7 @@ function encode(data) {
 }
 
 const Rsvp = () => {
+  const formRefPartOne = useRef()
   const formRefPartTwo = useRef()
   const formRefPartThree = useRef()
 
@@ -28,7 +29,6 @@ const Rsvp = () => {
   }
   const handleSubmit = data => {
     data[`form-name`] = `rsvp`
-    console.log(`body = ` + data)
     fetch(`/`, {
       method: `POST`,
       headers: { 'Content-Type': `application/x-www-form-urlencoded` },
@@ -48,60 +48,69 @@ const Rsvp = () => {
           onSubmit={handleSubmit}
           onSuccess={(response, context) => {
             context.formRef.current.reset()
+            formRefPartOne.classList.add( `hidden-form` )
+            formRefPartTwo.classList.add( `hidden-form` )
+            formRefPartThree.classList.add( `hidden-form` )
           }}
         >
           {({ handleChange, error, success }) => (
             <>
               {success &&
-                <div className="success response">{`Thanks for letting us know! LET'S GET WASTED!`}</div>
+                <div className="success response">
+                  {`Thanks for letting us know! LET'S GET WASTED!`}
+                </div>
               }
 
               {error &&
-                <div className="error response">Your information was not sent. Please try again later.</div>
+                <div className="error response">
+                  Your information was not sent. Please try again later.
+                </div>
               }
 
               <>
-                <Honeypot />
-                <fieldset className="hidden-label">
-                  <span className="field-title">{`New wedding who dis?`}</span>
-                  <div className="input-group">
-                    <label htmlFor="name" className="hidden-field">Name</label>
-                    <input
-                      id="guestName"
-                      name="name"
-                      type="text"
-                      placeholder="(Tell us your name)"
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                </fieldset>
+                <div className="rsvp-part-1 hidden" ref={formRefPartOne}>
+                  <Honeypot />
+                  <fieldset className="hidden-label">
+                    <span className="field-title">{`New wedding who dis?`}</span>
+                    <div className="input-group">
+                      <label htmlFor="name" className="hidden-field">Name</label>
+                      <input
+                        id="guestName"
+                        name="name"
+                        type="text"
+                        placeholder="(Tell us your name)"
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </fieldset>
 
-                <fieldset>
-                  <span className="field-title">{`Are you coming or nah?`}</span>
-                  <div className="input-group">
-                    <input
-                      id="guestRsvpYes"
-                      name="guestRsvp"
-                      value="yes"
-                      type="radio"
-                      onClick={e => handleRsvpConfirmation(e)}
-                      onChange={handleChange}
-                      required
-                    />
-                    <label htmlFor="guestRsvpYes">Yes</label>
-                    <input
-                      id="guestRsvpNo"
-                      name="guestRsvp"
-                      value="no"
-                      type="radio"
-                      onClick={e => handleRsvpConfirmation(e)}
-                      onChange={handleChange}
-                      required
-                    />
-                    <label htmlFor="guestRsvpNo">Nah</label>
-                  </div>
-                </fieldset>
+                  <fieldset>
+                    <span className="field-title">{`Are you coming or nah?`}</span>
+                    <div className="input-group">
+                      <input
+                        id="guestRsvpYes"
+                        name="guestRsvp"
+                        value="yes"
+                        type="radio"
+                        onClick={e => handleRsvpConfirmation(e)}
+                        onChange={handleChange}
+                        required
+                      />
+                      <label htmlFor="guestRsvpYes">Yes</label>
+                      <input
+                        id="guestRsvpNo"
+                        name="guestRsvp"
+                        value="no"
+                        type="radio"
+                        onClick={e => handleRsvpConfirmation(e)}
+                        onChange={handleChange}
+                        required
+                      />
+                      <label htmlFor="guestRsvpNo">Nah</label>
+                    </div>
+                  </fieldset>
+                </div>
 
                 <div className="rsvp-part-2 hidden" ref={formRefPartTwo}>
                   <fieldset>

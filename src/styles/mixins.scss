@@ -30,3 +30,18 @@
     background: white;
   }
 }
+
+
+@mixin section-title() {
+  margin: 0 0 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #d8d8d8;
+  font-size: 2em;
+  line-height: 1;
+  @media(max-width: $tablet-breakpoint) {
+    margin: 30px 0 20px;
+  }
+  @media(max-width: $mobile-breakpoint) {
+    margin: 20px 0 10px;
+  }
+}

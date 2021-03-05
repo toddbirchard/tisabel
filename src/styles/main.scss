@@ -26,17 +26,7 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 20px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #d8d8d8;
-  font-size: 2em;
-  line-height: 1;
-  @media(max-width: $tablet-breakpoint) {
-    margin: 30px 0 20px;
-  }
-  @media(max-width: $mobile-breakpoint) {
-    margin: 20px 0 10px;
-  }
+  @include section-title();
 }
 
 input[type=text],
@@ -83,7 +73,7 @@ main {
     padding: 30px;
   }
   @media(max-width: $mobile-breakpoint) {
-    padding: 10px 20px 20px;
+    padding: 10px 20px 30px;
   }
 
   h3 {
@@ -141,6 +131,7 @@ main {
       border-bottom: 1px solid #eaeaea;
       @media(max-width: $mobile-breakpoint) {
         flex-direction: column;
+        max-width: 92%;
       }
 
       &:last-of-type {
@@ -157,6 +148,7 @@ main {
           align-items: center;
           justify-content: space-between;
           width: auto;
+          margin-bottom: 0;
           font-size: 1em;
         }
 
@@ -172,7 +164,8 @@ main {
       .event-name {
         font-family: $body-font;
         @media(max-width: $mobile-breakpoint) {
-          margin-top: 7px;
+          margin-top: 2px;
+          font-family: $body-font-bold;
           font-size: 1.15em;
         }
       }
@@ -183,6 +176,10 @@ main {
 #rsvp {
   @media(max-width: $tablet-breakpoint){
     order: 4;
+  }
+
+  form {
+    transition: all 1s ease-out;
   }
   fieldset {
     margin-bottom: 20px;
@@ -270,6 +267,10 @@ main {
       transition: all 1 ease-out;
     }
   }
+
+  .hidden-form {
+    opacity: 0;
+  }
 }
 
 .error {
@@ -298,6 +299,10 @@ main {
     border-bottom: none;
     font-size: 1.8em;
     line-height: 1;
+
+    @media(max-width: $mobile-breakpoint) {
+      @include section-title();
+    }
   }
 
   form {
@@ -335,6 +340,9 @@ main {
   .gift-details {
     width: 100%;
     margin-left: 20px;
+    @media(max-width: $mobile-breakpoint) {
+      margin-left: 15px;
+    }
 
     .gift-headline {
       display: flex;
@@ -360,6 +368,9 @@ main {
   }
   .registry-image {
     min-width: 130px;
+    @media(max-width: $mobile-breakpoint) {
+      min-width: 100px;
+    }
   }
 
   .submit-button {
