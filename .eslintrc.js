@@ -10,12 +10,13 @@ module.exports = {
   plugins: [
     `react`,
     `import`,
-    `standard`,
     `jsx-a11y`,
   ],
   extends: [
-    `plugin:react/recommended`,
     `eslint:recommended`,
+    `plugin:react/recommended`,
+    `plugin:import/errors`,
+    `plugin:jsx-a11y/recommended`,
   ],
   settings: {
     react: {
