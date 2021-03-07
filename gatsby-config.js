@@ -19,7 +19,7 @@ module.exports = {
       options: {
         apiURL: `https://admin.tisabel4ever.com`,
         contentTypes: [`event`, `info`, `info-category`],
-        singleTypes: [`homepage`, `seo`],
+        singleTypes: [`homepage`, `seo`, `venue`],
         queryLimit: 1000,
       },
     },

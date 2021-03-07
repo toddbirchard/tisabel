@@ -1,3 +1,4 @@
-export { default as Itinerary } from './Itinerary'
-export { default as Rsvp } from './Rsvp'
-export { default as Hero } from './Hero'
+export { default as Itinerary } from './itinerary'
+export { default as Rsvp } from './rsvp'
+export { default as Hero } from './hero'
+export { default as Venue } from './venue'

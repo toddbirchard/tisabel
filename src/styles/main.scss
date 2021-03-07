@@ -105,6 +105,7 @@ main {
 
   #itinerary {
     height: fit-content;
+
     border: 1px solid #eaeaea;
     @media(max-width: $tablet-breakpoint) {
       margin-top: 0;
@@ -171,10 +172,35 @@ main {
       }
     }
   }
+
+  #venue {
+    margin-bottom: 30px;
+    .venue-name {
+      display: block;
+      margin-bottom: 5px;
+      color: black;
+      font-family: $header-font;
+      font-size: 1.1em;
+      transition: $transition;
+
+      &:hover {
+        color: $theme-color;
+      }
+
+    }
+    .address-line {
+      display: block;
+
+      &:last-of-type {
+        margin-top: 5px;
+        font-size: .9em;
+      }
+    }
+  }
 }
 
 #rsvp {
-  @media(max-width: $tablet-breakpoint){
+  @media(max-width: $tablet-breakpoint) {
     order: 4;
   }
 

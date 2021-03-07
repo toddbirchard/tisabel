@@ -172,7 +172,6 @@ const Rsvp = () => {
                     </div>
                   </fieldset>
                 </div>
-
                 <button type="submit" className="submit">Submit RSVP</button>
               </>
             </>
