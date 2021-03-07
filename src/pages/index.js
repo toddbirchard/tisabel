@@ -17,7 +17,6 @@ const Homepage = ({ data }) => (
         <div>
           <Venue />
           <Itinerary />
-
         </div>
         <Rsvp />
         <RegistryList />
