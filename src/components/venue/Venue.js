@@ -12,30 +12,30 @@ export const Venue = ({ data }) =>{
     <>
       <section id="venue" className="sidebar component">
         <a href={venueInfo.url}>
-        <Map
-          style="mapbox://styles/thetoddfather/cklyj9csm5mqa17mnfktc4j5k"
-          containerStyle={{
-            height: `90px`,
-            width: `100%`,
-            minWidth: `90px`,
-            marginRight: `15px`,
-          }}
-          center={[-73.988126, 40.721547]}
-          zoom={[11]}
-        >
-          <Layer type="symbol" id="marker">
-            <Feature
-              coordinates={[-73.988126, 40.721547]}
-              zoom={[16.54]}
-            />
-          </Layer>
-        </Map>
-        <div className="venue-details">
-          <span className="venue-name">{venueInfo.name}</span>
-          <span className="address-line">{venueInfo.street_address}</span>
-          <span className="address-line">{venueInfo.city_address}</span>
-          <span className="address-line">{venueInfo.cross_streets}</span>
-        </div>
+          <Map
+            style="mapbox://styles/thetoddfather/cklyj9csm5mqa17mnfktc4j5k"
+            containerStyle={{
+              height: `90px`,
+              width: `100%`,
+              minWidth: `90px`,
+              marginRight: `15px`,
+            }}
+            center={[-73.988126, 40.721547]}
+            zoom={[11]}
+          >
+            <Layer type="symbol" id="marker">
+              <Feature
+                coordinates={[-73.988126, 40.721547]}
+                zoom={[16.54]}
+              />
+            </Layer>
+          </Map>
+          <div className="venue-details">
+            <span className="venue-name">{venueInfo.name}</span>
+            <span className="address-line">{venueInfo.street_address}</span>
+            <span className="address-line">{venueInfo.city_address}</span>
+            <span className="address-line">{venueInfo.cross_streets}</span>
+          </div>
         </a>
       </section>
     </>
