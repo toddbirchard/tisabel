@@ -174,7 +174,14 @@ main {
   }
 
   #venue {
-    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    .mapboxgl-map {
+      border-radius: 3px;
+    }
+
     .venue-name {
       display: block;
       margin-bottom: 5px;

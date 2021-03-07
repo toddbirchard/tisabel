@@ -15,6 +15,10 @@ const MetaData = ({ seo, pageClasses }) => {
       <meta name="description" content={seo.meta_description}/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link rel="canonical" href={seo.canonical}/>
+      <link
+        href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
+        rel="stylesheet"
+      />
 
       {/* Facebook */}
       <meta property="og:site_name" content={seo.meta_title}/>
