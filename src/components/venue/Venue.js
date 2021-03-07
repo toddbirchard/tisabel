@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { Layer, Feature } from 'react-mapbox-gl'
 import Map from './Map'
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 export const Venue = ({ data }) =>{
   const venueInfo = data.strapiVenue
@@ -10,12 +11,14 @@ export const Venue = ({ data }) =>{
   return (
     <>
       <section id="venue" className="sidebar component">
+        <a href={venueInfo.url}>
         <Map
           style="mapbox://styles/thetoddfather/cklyj9csm5mqa17mnfktc4j5k"
           containerStyle={{
             height: `90px`,
             width: `100%`,
-            marginRight: `20px`,
+            minWidth: `90px`,
+            marginRight: `15px`,
           }}
           center={[-73.988126, 40.721547]}
           zoom={[11]}
@@ -28,11 +31,12 @@ export const Venue = ({ data }) =>{
           </Layer>
         </Map>
         <div className="venue-details">
-          <a href={venueInfo.url} className="venue-name">{venueInfo.name}</a>
+          <span className="venue-name">{venueInfo.name}</span>
           <span className="address-line">{venueInfo.street_address}</span>
           <span className="address-line">{venueInfo.city_address}</span>
           <span className="address-line">{venueInfo.cross_streets}</span>
         </div>
+        </a>
       </section>
     </>
   )

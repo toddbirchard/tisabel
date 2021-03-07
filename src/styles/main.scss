@@ -42,7 +42,7 @@ textarea {
   max-width: 1050px;
   margin: auto;
   background: white;
-  box-shadow: 0 0 5px #d1d1d1;
+
 }
 
 .sidebar {
@@ -51,7 +51,7 @@ textarea {
   section {
     margin-bottom: 40px;
     @media(max-width: $mobile-breakpoint) {
-      margin-bottom: 60px;
+      margin-bottom: 60px !important;
     }
 
     &:last-of-type {
@@ -78,18 +78,22 @@ textarea {
   }
 }
 
+
+.main-content {
+  padding: 40px;
+  @media(max-width: $tablet-breakpoint) {
+    padding: 30px !important;
+  }
+}
+
 main {
   grid-gap: 40px;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  padding: 40px;
+
   @media(max-width: $tablet-breakpoint) {
     grid-template-columns: 1fr;
-    padding: 30px !important;
     grid-gap: 60px !important;
-  }
-  @media(max-width: $mobile-breakpoint) {
-    padding: 30px;
   }
 
   h3 {
@@ -197,12 +201,22 @@ main {
   }
 
   #venue {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: 40px;
-    @media(max-width: $tablet-breakpoint) {
-      justify-content: left;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: $transition;
+      color: unset;
+      @media(max-width: $tablet-breakpoint) {
+        justify-content: left;
+      }
+
+      &:hover {
+        color: $theme-color;
+        cursor: pointer;
+      }
     }
 
     .mapboxgl-map {
@@ -222,22 +236,16 @@ main {
 
     .venue-name {
       display: block;
-      margin-bottom: 5px;
-      color: black;
+      margin-bottom: 7px;
       font-family: $header-font;
       font-size: 1.1em;
-      transition: $transition;
-
-      &:hover {
-        color: $theme-color;
-      }
     }
     .address-line {
       display: block;
 
       &:last-of-type {
-        margin-top: 5px;
-        font-size: .9em;
+        margin-top: 7px;
+        font-size: .85em;
       }
     }
   }

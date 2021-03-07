@@ -5,6 +5,7 @@
   package = "@netlify/plugin-lighthouse"
 
 [build]
+  base = "/"
   command = "gatsby build"
   publish = "public/"
   functions = "functions/"
@@ -23,7 +24,7 @@
      default-src *;
      style-src 'self' 'unsafe-inline';
      font-src 'self' data:;
-     script-src 'self' 'unsafe-inline' 'unsafe-eval' mapbox.com");
+     script-src 'self' 'unsafe-inline' 'unsafe-eval' .stripe.com");
      '''
 
 [[headers]]

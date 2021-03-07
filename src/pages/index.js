@@ -11,6 +11,7 @@ const Homepage = ({ data }) => (
   <>
     <Layout>
       <Hero homepage={data.strapiHomepage} />
+      <div className={"main-content"}>
       <main>
         <Details />
 
@@ -21,7 +22,9 @@ const Homepage = ({ data }) => (
         </aside>
 
         <Rsvp />
+
       </main>
+      </div>
     </Layout>
   </>
 )

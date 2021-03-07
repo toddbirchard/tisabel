@@ -1,4 +1,3 @@
-import 'mapbox-gl/dist/mapbox-gl.css'
 import ReactMapboxGl from "react-mapbox-gl"
 
 const Map = ReactMapboxGl({
