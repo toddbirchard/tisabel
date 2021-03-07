@@ -2,8 +2,7 @@ import React from "react"
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Layout } from "../components/common"
-import { Itinerary, Rsvp, Hero, Venue } from "../components"
-import { Details } from "../components/details"
+import { Itinerary, Rsvp, Hero, Venue, Details } from "../components"
 import { RegistryList } from "../components/registry"
 
 import "../styles/main.scss"

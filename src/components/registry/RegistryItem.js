@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
-import getStripe from '../common/Stripe'
+import getStripe from '../common/stripe'
 
 
 const formatPrice = (amount, currency) => {
