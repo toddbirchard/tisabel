@@ -1,19 +1,12 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl'
+import { Layer, Feature } from 'react-mapbox-gl'
+import Map from './Map'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 
-const Map = ReactMapboxGl({
-  accessToken: process.env.GATSBY_MAPBOX_TOKEN,
-  scrollZoom: false,
-  interactive: false,
-  attributionControl: false,
-})
-
-
-const Venue = ({ data }) =>{
+export const Venue = ({ data }) =>{
   const venueInfo = data.strapiVenue
 
   return (

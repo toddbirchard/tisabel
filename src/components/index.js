@@ -1,5 +1,5 @@
 export { default as Itinerary } from './itinerary/Itinerary'
 export { default as Rsvp } from './Rsvp'
 export { default as Hero } from './Hero'
-export { default as Venue } from './Venue'
+export { default as Venue } from './venue/Venue'
 export { default as Details } from './Details'
