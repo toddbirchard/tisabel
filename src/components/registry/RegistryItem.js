@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import PropTypes from 'prop-types'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { IoArrowForwardCircleOutline } from 'react-icons/io5'
-import getStripe from '../common/stripe'
+import getStripe from '../../util/Stripe'
 
 
 const formatPrice = (amount, currency) => {
@@ -45,7 +45,7 @@ const RegistryItem = ({ item }) => {
         <div className="gift-details">
           <div className="gift-headline">
             <label className="registry-gift-title">{item.product.name}</label>
-            <span name="price">
+            <span className="price">
               {formatPrice(item.unit_amount, item.currency)}
             </span>
           </div>

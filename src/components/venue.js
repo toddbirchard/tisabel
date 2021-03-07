@@ -23,7 +23,8 @@ const Venue = ({ data }) =>{
           style="mapbox://styles/thetoddfather/cklyj9csm5mqa17mnfktc4j5k"
           containerStyle={{
             height: `90px`,
-            width: `90px`,
+            width: `100%`,
+            marginRight: `20px`,
           }}
           center={[-73.988126, 40.721547]}
           zoom={[11]}

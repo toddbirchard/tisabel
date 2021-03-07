@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
-import Event from './event'
+import Event from './Event'
 
 const Itinerary = ({ data }) => {
   const first_day = data.allStrapiEvent.group[0]

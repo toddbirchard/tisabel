@@ -89,4 +89,4 @@ functions/*
 .yarn
 
 # Etc
-meta.json
+src/util/meta.json

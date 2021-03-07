@@ -16,7 +16,7 @@ const MetaData = ({ seo, pageClasses }) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link rel="canonical" href={seo.canonical}/>
       <link
-        href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css"
+        href="/css/mapbox-gl.css"
         rel="stylesheet"
       />
 

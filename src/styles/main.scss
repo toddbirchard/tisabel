@@ -45,6 +45,21 @@ textarea {
   box-shadow: 0 0 5px #d1d1d1;
 }
 
+.sidebar {
+  grid-row-start: span 2;
+
+  section {
+    margin-bottom: 40px;
+    @media(max-width: $mobile-breakpoint) {
+      margin-bottom: 60px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -73,7 +88,7 @@ main {
     padding: 30px;
   }
   @media(max-width: $mobile-breakpoint) {
-    padding: 10px 20px 30px;
+    padding: 30px;
   }
 
   h3 {
@@ -89,6 +104,9 @@ main {
 
   .detail {
     margin-bottom: 40px;
+    @media(max-width: $mobile-breakpoint) {
+      margin-bottom: 25px;
+    }
 
     &:last-of-type {
       margin-bottom: unset;
@@ -166,8 +184,8 @@ main {
         font-family: $body-font;
         @media(max-width: $mobile-breakpoint) {
           margin-top: 2px;
-          font-family: $body-font-bold;
           font-size: 1.15em;
+          font-weight: bold;
         }
       }
     }
@@ -175,11 +193,26 @@ main {
 
   #venue {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 40px;
+    @media(max-width: $mobile-breakpoint) {
+      justify-content: left;
+    }
 
     .mapboxgl-map {
       border-radius: 3px;
+      @media(max-width: $mobile-breakpoint) {
+        max-width: 30% !important;
+
+        .mapboxgl-canvas {
+          max-width: unset !important;
+        }
+      }
+    }
+
+    .venue-details {
+      min-width: 232px;
     }
 
     .venue-name {
@@ -193,7 +226,6 @@ main {
       &:hover {
         color: $theme-color;
       }
-
     }
     .address-line {
       display: block;
@@ -334,7 +366,7 @@ main {
   .registry-title {
     margin: 0;
     border-bottom: none;
-    font-size: 1.8em;
+    font-size: 1.6em;
     line-height: 1;
 
     @media(max-width: $mobile-breakpoint) {
@@ -388,6 +420,7 @@ main {
 
       .registry-gift-title {
         font-size: 1.1em;
+        text-align: left;
       }
     }
 

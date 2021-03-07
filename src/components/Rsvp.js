@@ -13,14 +13,14 @@ const Rsvp = () => {
   const formRefPartThree = useRef()
 
   const handleRsvpConfirmation = (e) => {
-    if (e.target.value == `yes`){
+    if (e.target.value === `yes`){
       formRefPartTwo.current.classList.remove(`hidden`)
     } else {
       formRefPartTwo.current.classList.add(`hidden`)
     }
   }
   const handleTravelConfirmation = (e) => {
-    if (e.target.value == `yes`){
+    if (e.target.value === `yes`){
       formRefPartThree.current.classList.remove(`hidden`)
     } else {
       formRefPartThree.current.classList.add(`hidden`)
