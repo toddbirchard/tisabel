@@ -5,13 +5,20 @@
   package = "@netlify/plugin-lighthouse"
 
 [build]
-  base = "/"
   command = "gatsby build"
-  publish = "/public"
-  functions = "/functions"
+  publish = "public/"
+  functions = "functions/"
 
 [build.environment]
   GO_VERSION = "1.16"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    SameSite = '''
+    None,
+    Secure
+    '''
 
 [[headers]]
   for = "/webfonts/GilroyMedium.woff2"

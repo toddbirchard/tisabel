@@ -21,7 +21,10 @@ export const Venue = ({ data }) =>{
           zoom={[11]}
         >
           <Layer type="symbol" id="marker">
-            <Feature coordinates={[-73.988126, 40.721547]} zoom={[16.54]} />
+            <Feature
+              coordinates={[-73.988126, 40.721547]}
+              zoom={[16.54]}
+            />
           </Layer>
         </Map>
         <div className="venue-details">

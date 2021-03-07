@@ -3,11 +3,10 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { getImage } from "gatsby-plugin-image"
 
-
 const MetaData = ({ seo, pageClasses }) => {
   const share_image = getImage(seo.share_image)
 
-  return(
+  return (
     <Helmet>
       <html lang="en-US" className={pageClasses} />
       <body className={pageClasses} />
@@ -15,10 +14,6 @@ const MetaData = ({ seo, pageClasses }) => {
       <meta name="description" content={seo.meta_description}/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link rel="canonical" href={seo.canonical}/>
-      <link
-        href="/css/mapbox-gl.css"
-        rel="stylesheet"
-      />
 
       {/* Facebook */}
       <meta property="og:site_name" content={seo.meta_title}/>
@@ -27,7 +22,7 @@ const MetaData = ({ seo, pageClasses }) => {
       <meta property="og:description" content={seo.meta_description}/>
       <meta property="og:url" content={seo.canonical}/>
       <meta property="og:image:width" content="1080" />
-      <meta property="og:image:height" content=" 724" />
+      <meta property="og:image:height" content="523" />
       <meta property="og:image" content={share_image} />
 
       {/* Twitter */}
@@ -41,7 +36,7 @@ const MetaData = ({ seo, pageClasses }) => {
         {`
           {
             "endDate": "07/31/2021 02:00PM",
-            "name": "Tisabel4Ever",
+            "name": "Todd & Isabel's Wedding",
             "url": "https://tisabel4ever.com/",
             "@context": "https://schema.org/",
             "startDate": "07/30/2021 3:00PM",
@@ -51,7 +46,7 @@ const MetaData = ({ seo, pageClasses }) => {
               "sameAs": "https://www.mrpurplenyc.com/",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "180 Orchard Street, 15th floor",
+                "streetAddress": "171 Ludlow Street, 15th floor",
                 "addressLocality": "New York",
                 "addressRegion": "NY",
                 "postalCode": "10002",
