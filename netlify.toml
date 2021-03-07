@@ -20,12 +20,6 @@
     None,
     Secure
     '''
-    Content-Security-Policy = '''
-     default-src *;
-     style-src 'self' 'mapbox.com';
-     img-src *;
-     script-src 'self' '.stripe.com' 'mapbox.com';
-     '''
 
 [[headers]]
   for = "/webfonts/GilroyMedium.woff2"
