@@ -7,11 +7,13 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 export const Venue = ({ data }) =>{
   const venueInfo = data.strapiVenue
+  const locationUrl = venueInfo.locationUrl
+  const venueUrl = venueInfo.venueUrl
 
   return (
     <>
       <section id="venue" className="sidebar component">
-        <a href={venueInfo.url}>
+        <a href={locationUrl} className="map-wrapper">
           <Map
             style="mapbox://styles/thetoddfather/cklyj9csm5mqa17mnfktc4j5k"
             containerStyle={{
@@ -30,11 +32,13 @@ export const Venue = ({ data }) =>{
               />
             </Layer>
           </Map>
+        </a>
+        <a href={venueUrl}>
           <div className="venue-details">
             <span className="venue-name">{venueInfo.name}</span>
-            <span className="address-line">{venueInfo.street_address}</span>
-            <span className="address-line">{venueInfo.city_address}</span>
-            <span className="address-line">{venueInfo.cross_streets}</span>
+            <span className="address-line">{venueInfo.streetAddress}</span>
+            <span className="address-line">{venueInfo.cityAddress}</span>
+            <span className="address-line">{venueInfo.crossStreets}</span>
           </div>
         </a>
       </section>
@@ -47,10 +51,11 @@ Venue.propTypes = {
     strapiVenue: PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      city_address: PropTypes.string.isRequired,
-      street_address: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-      cross_streets: PropTypes.string.isRequired,
+      cityAddress: PropTypes.string.isRequired,
+      streetAddress: PropTypes.string.isRequired,
+      venueUrl: PropTypes.string.isRequired,
+      locationUrl: PropTypes.string.isRequired,
+      crossStreets: PropTypes.string.isRequired,
     }),
   }),
 }
@@ -63,10 +68,11 @@ const VenueQuery = props => (
         strapiVenue {
           id
           name
-          street_address
-          city_address
-          url
-          cross_streets
+          streetAddress
+          cityAddress
+          locationUrl
+          venueUrl
+          crossStreets
         }
       }
     `}

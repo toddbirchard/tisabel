@@ -3,6 +3,13 @@ require(`dotenv`).config({
 })
 
 module.exports = {
+  siteMetadata: {
+    title: `tisabel4ever`,
+    description: `Todd & Isabel's Wedding Invitation.`,
+    author: `Todd Birchard`,
+    url: `https://tisabel4ever.com`,
+    image: `images/icons/icon-512x512.png`,
+  },
   plugins: [
     /**
      *  Source Plugins
@@ -12,6 +19,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/static`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -86,7 +100,7 @@ module.exports = {
     {
       resolve: `gatsby-source-stripe`,
       options: {
-        objects: [`Product`, `Price`],
+        objects: [`Sku`, `Product`, `Price`],
         secretKey: process.env.STRIPE_API_KEY,
         downloadFiles: true,
       },
@@ -104,6 +118,5 @@ module.exports = {
      *  Misc Plugins
      */
     `gatsby-plugin-force-trailing-slashes`,
-    `gatsby-plugin-offline`,
   ],
 }

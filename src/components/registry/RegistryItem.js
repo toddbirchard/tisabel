@@ -81,6 +81,7 @@ RegistryItem.propTypes = {
           childImageSharp: PropTypes.object.isRequired,
         }),
       ),
+      images: PropTypes.object,
     }),
   }),
 }

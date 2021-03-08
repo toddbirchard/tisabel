@@ -11,6 +11,7 @@ function encode(data) {
 const Rsvp = () => {
   const formRefPartTwo = useRef()
   const formRefPartThree = useRef()
+  const [disabled, setDisabled] = React.useState(false)
 
   const handleRsvpConfirmation = (e) => {
     if (e.target.value === `yes`){
@@ -48,6 +49,9 @@ const Rsvp = () => {
           onSuccess={(response, context) => {
             context.formRef.current.reset()
             context.formRef.classList.add( `hidden-form` )
+            setDisabled(true)
+            formRefPartTwo.current.classList.add(`hidden`)
+            formRefPartThree.current.classList.add(`hidden`)
           }}
         >
           {({ handleChange, error, success }) => (
@@ -67,7 +71,7 @@ const Rsvp = () => {
               <>
                 <div className="rsvp-part-1 hidden">
                   <Honeypot />
-                  <fieldset className="hidden-label">
+                  <fieldset className="hidden-label" disabled={disabled}>
                     <span className="field-title">{`New wedding who dis?`}</span>
                     <div className="input-group">
                       <label htmlFor="name" className="hidden-field">Name</label>
@@ -82,7 +86,7 @@ const Rsvp = () => {
                     </div>
                   </fieldset>
 
-                  <fieldset>
+                  <fieldset disabled={disabled}>
                     <span className="field-title">{`Are you coming or nah?`}</span>
                     <div className="input-group">
                       <input
@@ -109,7 +113,7 @@ const Rsvp = () => {
                   </fieldset>
                 </div>
 
-                <div className="rsvp-part-2 hidden" ref={formRefPartTwo}>
+                <div className="rsvp-part-2 hidden" ref={formRefPartTwo}  disabled={disabled}>
                   <fieldset>
                     <span className="field-title">{`Bringing a +1?`}</span>
                     <div className="input-group">
@@ -124,7 +128,7 @@ const Rsvp = () => {
                     </div>
                   </fieldset>
 
-                  <fieldset>
+                  <fieldset disabled={disabled}>
                     <span className="field-title">{`Are you traveling from out of town?`}</span>
                     <div className="input-group">
                       <input
@@ -149,8 +153,8 @@ const Rsvp = () => {
                   </fieldset>
                 </div>
 
-                <div className="rsvp-part-3 hidden" ref={formRefPartThree}>
-                  <fieldset>
+                <div className="rsvp-part-3 hidden" ref={formRefPartThree} >
+                  <fieldset disabled={disabled}>
                     <span className="field-title">{`Need a hotel room?`}</span>
                     <div className="input-group">
                       <input
@@ -172,7 +176,9 @@ const Rsvp = () => {
                     </div>
                   </fieldset>
                 </div>
-                <button type="submit" className="submit">Submit RSVP</button>
+                <fieldset  disabled={disabled}>
+                  <button type="submit" className="submit">Submit RSVP</button>
+                </fieldset>
               </>
             </>
           )}

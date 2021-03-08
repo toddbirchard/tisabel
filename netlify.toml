@@ -16,8 +16,10 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    SameSite = '''
-    None,
+    Set-Cookie = '''
+    _gid=GA1.2.1584989245.1615005592;
+    _ga=GA1.2.558205032.1613277221;
+    SameSite=None;
     Secure
     '''
 

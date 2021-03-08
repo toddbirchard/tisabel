@@ -90,3 +90,6 @@ functions/*
 
 # Etc
 src/util/meta.json
+
+# Experimental
+.gatsby-node.js

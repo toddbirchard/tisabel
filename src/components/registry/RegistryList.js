@@ -38,6 +38,7 @@ RegistryList.propTypes = {
                   childImageSharp: PropTypes.object.isRequired,
                 }),
               ),
+              images: PropTypes.object,
             }),
           }),
         }),
@@ -45,6 +46,7 @@ RegistryList.propTypes = {
     }),
   }),
 }
+
 
 const RegistryListQuery = props => (
   <StaticQuery
