@@ -16,6 +16,8 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    X-XSS-Protection = "0"
+    X-Frame-Options = "SAMEORIGIN"
     Set-Cookie = '''
     _gid=GA1.2.1584989245.1615005592;
     _ga=GA1.2.558205032.1613277221;
