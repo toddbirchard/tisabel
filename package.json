@@ -73,8 +73,8 @@
     "sharp": "^0.27.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.8",
-    "@babel/eslint-parser": "7.13.8",
+    "@babel/core": "7.13.10",
+    "@babel/eslint-parser": "7.13.10",
     "babel-preset-gatsby": "^1.0.0",
     "cssnano": "^4.1.10",
     "eslint": "^7.21.0",
