@@ -17,15 +17,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/static`,
+        path: `${__dirname}/src/pages`,
+        name: `pages`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/static`,
       },
     },
     {
@@ -35,6 +35,14 @@ module.exports = {
         contentTypes: [`event`, `info`, `info-category`],
         singleTypes: [`homepage`, `seo`, `venue`],
         queryLimit: 1000,
+      },
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: [`Product`, `Price`],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: true,
       },
     },
     /**
@@ -95,17 +103,6 @@ module.exports = {
       },
     },
     /**
-     *  Ecommerce Plugins
-     */
-    {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: [`Sku`, `Product`, `Price`],
-        secretKey: process.env.STRIPE_API_KEY,
-        downloadFiles: true,
-      },
-    },
-    /**
      *  Analytics Plugins
      */
     {
@@ -114,9 +111,5 @@ module.exports = {
         siteId: process.env.GAUGES_SITE_ID,
       },
     },
-    /**
-     *  Misc Plugins
-     */
-    `gatsby-plugin-force-trailing-slashes`,
   ],
 }

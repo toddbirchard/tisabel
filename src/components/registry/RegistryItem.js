@@ -24,11 +24,11 @@ const RegistryItem = ({ item }) => {
     event.preventDefault()
     setLoading(true)
 
-    const price = item.id
+    const priceId = item.id
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout({
       mode: `payment`,
-      lineItems: [{ price, quantity: 1 }],
+      lineItems: [{ priceId, quantity: 1 }],
       successUrl: siteUrl + `/success`,
       cancelUrl: siteUrl,
     })
@@ -41,7 +41,7 @@ const RegistryItem = ({ item }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <button disabled={loading} className="registry-gift">
+      <button disabled={loading} name="priceSelect" className="registry-gift">
         <div className="gift-details">
           <div className="gift-headline">
             <label className="registry-gift-title">{item.product.name}</label>
@@ -81,11 +81,11 @@ RegistryItem.propTypes = {
           childImageSharp: PropTypes.object.isRequired,
         }),
       ),
-      images: PropTypes.object,
+      images: PropTypes.arrayOf(
+        PropTypes.string,
+      ),
     }),
   }),
 }
-
-
 
 export default RegistryItem
