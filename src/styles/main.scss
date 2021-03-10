@@ -1,4 +1,4 @@
-@import 'fonts.scss', 'variables.scss', 'mixins.scss';
+@import 'fonts.scss', 'variables.scss', 'mixins.scss', 'itinerary.scss', 'registry.scss', 'rsvp.scss', 'venue.scss';
 
 body {
   margin: 0;
@@ -47,6 +47,9 @@ textarea {
 
 .sidebar {
   grid-row-start: span 2;
+  @media(max-width: $mobile-breakpoint) {
+    margin: 0;
+  }
 
   section {
     margin-bottom: 40px;
@@ -78,18 +81,24 @@ textarea {
   }
 }
 
+.main-content {
+  padding: 40px;
+  @media(max-width: $tablet-breakpoint) {
+    padding: 30px !important;
+  }
+  @media(max-width: $mobile-breakpoint) {
+    padding: 20px !important;
+  }
+}
+
 main {
   grid-gap: 40px;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  padding: 40px;
+
   @media(max-width: $tablet-breakpoint) {
-    grid-template-columns: 1fr;
-    padding: 30px !important;
     grid-gap: 60px !important;
-  }
-  @media(max-width: $mobile-breakpoint) {
-    padding: 30px;
+    grid-template-columns: 1fr;
   }
 
   h3 {
@@ -123,354 +132,6 @@ main {
       li {
         margin-bottom: 15px;
       }
-    }
-  }
-
-  #itinerary {
-    height: fit-content;
-
-    border: 1px solid #eaeaea;
-    @media(max-width: $tablet-breakpoint) {
-      margin-top: 0;
-      margin-right: calc(-50vw + 50%)!important;
-      margin-left: calc(-50vw + 50%)!important;
-    }
-
-    .date {
-      padding: 10px 5px;
-      background: #eaeaea;
-      font-size: 1.1em;
-      font-weight: bold;
-      text-align: center;
-
-      @media(max-width: $mobile-breakpoint) {
-        padding: 13px 5px;
-        font-size: 1.2em;
-      }
-    }
-
-    .event {
-      display: flex;
-      padding: 15px;
-      border-bottom: 1px solid #eaeaea;
-      @media(max-width: $mobile-breakpoint) {
-        flex-direction: column;
-        max-width: 92%;
-      }
-
-      &:last-of-type {
-        border-bottom: none;
-      }
-
-      .event-detail {
-        display: flex;
-        flex-direction: column;
-        min-width: 140px;
-        font-size: .9em;
-        @media(max-width: $mobile-breakpoint) {
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-          width: auto;
-          margin-bottom: 0;
-          font-size: 1em;
-        }
-
-        .event-time {
-          margin-bottom: 3px;
-        }
-
-        .event-location {
-          font-size: .85em;
-        }
-      }
-
-      .event-name {
-        font-family: $body-font;
-        @media(max-width: $mobile-breakpoint) {
-          margin-top: 2px;
-          font-size: 1.15em;
-          font-weight: bold;
-        }
-      }
-    }
-  }
-
-  #venue {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    @media(max-width: $tablet-breakpoint) {
-      justify-content: left;
-    }
-
-    .mapboxgl-map {
-      border-radius: 3px;
-      @media(max-width: $tablet-breakpoint) {
-        max-width: 30% !important;
-
-        .mapboxgl-canvas {
-          max-width: unset !important;
-        }
-      }
-    }
-
-    .venue-details {
-      min-width: 232px;
-    }
-
-    .venue-name {
-      display: block;
-      margin-bottom: 5px;
-      color: black;
-      font-family: $header-font;
-      font-size: 1.1em;
-      transition: $transition;
-
-      &:hover {
-        color: $theme-color;
-      }
-    }
-    .address-line {
-      display: block;
-
-      &:last-of-type {
-        margin-top: 5px;
-        font-size: .9em;
-      }
-    }
-  }
-}
-
-#rsvp {
-  @media(max-width: $tablet-breakpoint) {
-    order: 4;
-  }
-
-  form {
-    transition: all 1s ease-out;
-  }
-  fieldset {
-    margin-bottom: 20px;
-    padding: 10px 0;
-    border: none;
-
-    .field-title {
-      display: block;
-      margin-bottom: 6px;
-      font-family: $label-font;
-      font-size: 1.15em;
-    }
-
-    input[type='text'] {
-      @include input-text-fields();
-      width: fill-available;
-    }
-
-    input[type='radio'],
-    input[type='checkbox'] {
-      margin-right: 5px;
-      margin-left: 20px;
-
-      &:first-of-type {
-        margin-left: unset;
-      }
-    }
-
-    textarea {
-      @include input-text-fields();
-      width: fill-available;
-      height: 120px;
-    }
-
-    label {
-      font-size: 1.2em;
-    }
-
-    &.hidden-field {
-      clip: rect(1px, 1px, 1px, 1px);
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-
-    &.hidden-label {
-      label{
-        clip: rect(1px, 1px, 1px, 1px);
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-      }
-    }
-  }
-
-  .submit {
-    padding: 8px 12px;
-    border: 1px solid #121212;
-    border-radius: 3px;
-    background: #121212;
-    color: white;
-    font-size: 1em;
-    @media(max-width: $mobile-breakpoint) {
-      padding: 10px 14px;
-      font-size: 1.1em;
-    }
-
-    &:hover {
-      background: white;
-      color: #121212;
-      cursor: pointer;
-    }
-  }
-
-  .rsvp-part-2,
-  .rsvp-part-3 {
-    transition: all 1 ease-out;
-
-    &.hidden {
-      height: 1px;
-      transform: scale(1, 0.01);
-      opacity: 0;
-      transition: all 1 ease-out;
-    }
-  }
-
-  .hidden-form {
-    fieldset,
-    button {
-      opacity: 0;
-    }
-
-  }
-}
-
-.error {
-  border: 1px solid #c79696;
-  background: #f6dada;
-  color: #851c1c;
-}
-
-.success {
-  border: 1px solid #7aaa7e;
-  background: #cbecd4;
-  color: #3c8142;
-}
-
-.response {
-  margin-bottom: 25px;
-  padding: 15px;
-  border-radius: 5px;
-  font-family: $label-font;
-}
-
-#registry {
-
-  .registry-title {
-    margin: 0;
-    border-bottom: none;
-    font-size: 1.6em;
-    line-height: 1;
-
-    @media(max-width: $mobile-breakpoint) {
-      @include section-title();
-    }
-  }
-
-  form {
-    margin: 0;
-    border-bottom: 1px solid #e9e9e9 !important;
-
-    &:last-of-type {
-      border-bottom: none !important;
-    }
-  }
-}
-
-.registry-gift {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-  padding: 15px 10px;
-  border: none;
-  outline: none;
-  background: white;
-  font-family: unset;
-  transition: $transition;
-
-  &:hover {
-    background: #36383d;
-    cursor: pointer;
-
-    * {
-      color: white;
-    }
-  }
-
-  .gift-details {
-    width: 100%;
-    margin-left: 20px;
-    @media(max-width: $mobile-breakpoint) {
-      margin-left: 15px;
-    }
-
-    .gift-headline {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      .registry-gift-title {
-        font-size: 1.1em;
-        text-align: left;
-      }
-    }
-
-    .gift-description {
-      margin-top: 3px;
-      margin-bottom: 8px;
-      font-size: .95em;
-      line-height: 1.2;
-      text-align: left;
-    }
-  }
-
-  .registry-gift-title {
-    font-family: $header-font;
-  }
-  .registry-image {
-    min-width: 130px;
-    @media(max-width: $mobile-breakpoint) {
-      min-width: 100px;
-    }
-  }
-
-  .submit-button {
-    display: flex;
-    align-items: center;
-    padding: 4px 8px;
-    float: right;
-    border: none;
-    outline: none;
-    background: none;
-    color: #36383d;
-    font-family: $header-font;
-    font-size: .95em;
-    @media(max-width: $mobile-breakpoint) {
-      padding: 10px 14px;
-      font-size: 1em;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    span {
-      display: block;
-      margin-right: 5px;
     }
   }
 }

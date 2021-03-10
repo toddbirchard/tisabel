@@ -1,0 +1,57 @@
+#venue {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 0 0 40px;
+  color: unset;
+
+  a {
+    display: block;
+    overflow: hidden;
+    color: unset;
+    transition: $transition;
+
+    &:hover {
+      color: $theme-color;
+      cursor: pointer;
+    }
+  }
+
+  .map-wrapper {
+    margin-right: 15px;
+    border-radius: 3px;
+    @media(max-width: $tablet-breakpoint) {
+      max-width: 30% !important;
+
+      .mapboxgl-canvas {
+        max-width: unset !important;
+      }
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  .venue-details {
+    min-width: 232px;
+  }
+
+  .venue-name {
+    display: block;
+    margin-bottom: 5px;
+    font-family: $header-font;
+    font-size: 1.1em;
+    line-height: 1;
+  }
+
+  .address-line {
+    display: block;
+
+    &:last-of-type {
+      margin-top: 5px;
+      font-size: .85em;
+      line-height: 1;
+    }
+  }
+}

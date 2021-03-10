@@ -1,0 +1,122 @@
+#rsvp {
+  @media(max-width: $tablet-breakpoint) {
+    order: 4;
+  }
+
+  form {
+    transition: all 1s ease-out;
+  }
+  fieldset {
+    margin-bottom: 20px;
+    padding: 10px 0;
+    border: none;
+
+    .field-title {
+      display: block;
+      margin-bottom: 6px;
+      font-family: $label-font;
+      font-size: 1.15em;
+    }
+
+    input[type='text'] {
+      @include input-text-fields();
+      width: fill-available;
+    }
+
+    input[type='radio'],
+    input[type='checkbox'] {
+      margin-right: 5px;
+      margin-left: 20px;
+
+      &:first-of-type {
+        margin-left: unset;
+      }
+    }
+
+    textarea {
+      @include input-text-fields();
+      width: fill-available;
+      height: 120px;
+    }
+
+    label {
+      font-size: 1.2em;
+    }
+
+    &.hidden-field {
+      clip: rect(1px, 1px, 1px, 1px);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    &.hidden-label {
+      label{
+        clip: rect(1px, 1px, 1px, 1px);
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .submit {
+    padding: 8px 12px;
+    border: 1px solid #121212;
+    border-radius: 3px;
+    background: #121212;
+    color: white;
+    font-size: 1em;
+    @media(max-width: $mobile-breakpoint) {
+      padding: 10px 14px;
+      font-size: 1.1em;
+    }
+
+    &:hover {
+      background: white;
+      color: #121212;
+      cursor: pointer;
+    }
+  }
+
+  .rsvp-part-2,
+  .rsvp-part-3 {
+    transition: all 1 ease-out;
+
+    &.hidden {
+      height: 1px;
+      transform: scale(1, 0.01);
+      opacity: 0;
+      transition: all 1 ease-out;
+    }
+  }
+
+  .hidden-form {
+    fieldset,
+    button {
+      opacity: 0;
+    }
+
+  }
+}
+
+.error {
+  border: 1px solid #c79696;
+  background: #f6dada;
+  color: #851c1c;
+}
+
+.success {
+  border: 1px solid #7aaa7e;
+  background: #cbecd4;
+  color: #3c8142;
+}
+
+.response {
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: $label-font;
+}

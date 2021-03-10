@@ -55,9 +55,9 @@ const RegistryItem = ({ item }) => {
         <GatsbyImage
           image={image}
           placeholder="blurred"
-          layout="fixed"
+          layout="fluid"
           width={120}
-          height={120}
+          height={100}
           alt={item.product.name}
           className="registry-image"
         />
