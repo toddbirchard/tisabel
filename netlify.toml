@@ -15,9 +15,9 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Access-Control-Allow-Origin = "*"
+    Accept = "*"
+    Access-Control-Allow-Origin = "*/*"
     X-Frame-Options = "SAMEORIGIN"
-
 
 [[headers]]
   for = "/webfonts/GilroyMedium.woff2"
