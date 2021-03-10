@@ -69,15 +69,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `tisabel4ever`,
-        short_name: `tisabel4ever`,
+        name: `tisabel`,
+        short_name: `tisabelr`,
         start_url: `/`,
         lang: `en`,
         display: `standalone`,
         background_color: `#fff`,
         theme_color: `#f6c75f`,
         legacy: false,
-        icon: `src/images/icon.png`,
+        icon: `/images/icons/icon-512x512.png`,
       },
     },
     /**
