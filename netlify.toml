@@ -15,10 +15,9 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    same-site = '''
-    None,
-    Secure
-    '''
+    Access-Control-Allow-Origin = "*"
+    X-Frame-Options = "SAMEORIGIN"
+
 
 [[headers]]
   for = "/webfonts/GilroyMedium.woff2"
