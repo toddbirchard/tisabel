@@ -77,7 +77,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#f6c75f`,
         legacy: false,
-        icon: `/images/icons/icon-512x512.png`,
+        icon: `src/images/icons/icon.png`,
       },
     },
     /**
