@@ -18,6 +18,12 @@
     Accept = "*"
     Access-Control-Allow-Origin = "*/*"
     X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "0"
+    Content-Security-Policy = '''
+      font-src=.myfonts.net;
+
+
+
 
 [[headers]]
   for = "/webfonts/GilroyMedium.woff2"
