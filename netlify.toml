@@ -24,7 +24,7 @@
        connect-src 'self' *.mapbox.com https://* wss://*;
        script-src 'self' 'unsafe-inline' *.cloudfront.net *.stripe.com *.gaug.es;
        style-src 'self' 'unsafe-inline' *.myfonts.net;
-       child-src 'self'  'unsafe-inline' blob:;
+       child-src 'self'  'unsafe-inline' blob: data:;
        img-src 'self' 'unsafe-inline' blob:;
        font-src 'self' *.cloudfront.net *.stripe.com;
        '''
