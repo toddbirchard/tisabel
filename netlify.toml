@@ -21,10 +21,9 @@
     X-XSS-Protection = "0"
     Content-Security-Policy = '''
        default-src 'self';
-       img-src 'self';
        connect-src 'self' *.mapbox.com https://* wss://*;
        script-src 'self' 'unsafe-inline' *.cloudfront.net *.stripe.com *.gaug.es;
-       style-src 'self' 'unsafe-inline';
+       style-src 'self' 'unsafe-inline' *.myfonts.net;
        child-src blob: ;
        font-src 'self' *.cloudfront.net *.stripe.com;
        '''
