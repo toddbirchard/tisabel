@@ -21,12 +21,12 @@
     X-XSS-Protection = "0"
     Content-Security-Policy = '''
        default-src 'self';
-       https://* blob: data:;
-       script-src https://* 'sha256-NwPGqa9Mxa7ZIeBSPi4K97Vtt3uBWjwtJsUlZfeqG5E' 'unsafe-eval';
-       style-src 'unsafe-inline' https://*;
+       img-src 'self'
+       connect-src 'self' https://* wss://*;
+       script-src 'unsafe-inline' *.stripe.com;
+       style-src 'self' https://* ;
        child-src blob: ;
-       connect-src https://*;
-       font-src *.cloudfront.net
+       font-src 'self' *.cloudfront.net *.stripe.com;
        '''
 
 [[headers]]
