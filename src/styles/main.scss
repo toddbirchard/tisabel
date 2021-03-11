@@ -1,4 +1,4 @@
-@import 'fonts.scss', 'variables.scss', 'mixins.scss', 'itinerary.scss', 'registry.scss', 'rsvp.scss', 'venue.scss';
+@import 'fonts.scss', 'variables.scss', 'mixins.scss', 'itinerary.scss', 'registry.scss', 'rsvp.scss', 'venue.scss', 'welcome.scss';
 
 body {
   margin: 0;
@@ -87,7 +87,7 @@ textarea {
     padding: 30px !important;
   }
   @media(max-width: $mobile-breakpoint) {
-    padding: 20px !important;
+    padding: 30px 20px!important;
   }
 }
 

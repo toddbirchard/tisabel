@@ -1,11 +1,10 @@
 #itinerary {
   height: fit-content;
-
   border: 1px solid #eaeaea;
   @media(max-width: $tablet-breakpoint) {
+    width: 100%;
+    margin: 0 0 60px;
     margin-top: 0;
-    // margin-right: calc(-50vw + 50%)!important;
-    // margin-left: calc(-50vw + 50%)!important;
   }
 
   .date {
@@ -44,6 +43,7 @@
         align-items: center;
         justify-content: space-between;
         width: auto;
+        min-width: unset;
         margin-bottom: 0;
         font-size: 1em;
       }
