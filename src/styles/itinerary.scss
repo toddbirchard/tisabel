@@ -1,6 +1,7 @@
 #itinerary {
   height: fit-content;
   border: 1px solid #eaeaea;
+  box-shadow: 0 0 2px rgb(126 128 133 / 30%);
   @media(max-width: $tablet-breakpoint) {
     width: 100%;
     margin: 0 0 60px;
@@ -24,6 +25,7 @@
     display: flex;
     padding: 15px;
     border-bottom: 1px solid #eaeaea;
+    line-height: 1;
     @media(max-width: $mobile-breakpoint) {
       flex-direction: column;
       max-width: 92%;
@@ -38,6 +40,10 @@
       flex-direction: column;
       min-width: 140px;
       font-size: .9em;
+      @media(max-width: 900px) {
+        min-width: 120px;
+        margin-right: 10px;
+      }
       @media(max-width: $mobile-breakpoint) {
         flex-direction: row;
         align-items: center;
@@ -50,6 +56,7 @@
 
       .event-time {
         margin-bottom: 3px;
+        line-height: 1;
       }
 
       .event-location {
@@ -59,8 +66,9 @@
 
     .event-name {
       font-family: $body-font;
+      font-size: 1.05em;
       @media(max-width: $mobile-breakpoint) {
-        margin-top: 5px;
+        margin-top: 7px;
         font-size: 1.1em;
       }
     }

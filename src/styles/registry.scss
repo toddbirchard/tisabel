@@ -64,6 +64,9 @@
       .registry-gift-title {
         font-size: 1.1em;
         text-align: left;
+        @media(max-width: $mobile-breakpoint) {
+          font-size: 1.2em;
+        }
       }
     }
 
@@ -72,6 +75,10 @@
       font-size: .95em;
       line-height: 1.2;
       text-align: left;
+      @media(max-width: $mobile-breakpoint) {
+        font-size: 1em;
+        line-height: 1.1;
+      }
     }
   }
 
@@ -99,8 +106,7 @@
     font-family: $header-font;
     font-size: .95em;
     @media(max-width: $mobile-breakpoint) {
-      padding: 10px 14px;
-      font-size: 1em;
+      font-size: 1.05em;
     }
 
     &:hover {

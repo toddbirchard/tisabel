@@ -31,10 +31,21 @@
     &:hover {
       opacity: .7;
     }
+
+    .mapboxql-map {
+      @media(max-width: 900px) {
+      width: 100%;
+      min-width: 85px;
+      height: 85px;
+    }
+    }
   }
 
   .venue-details {
     min-width: 232px;
+    @media(max-width: 900px) {
+      min-width: 200px;
+    }
   }
 
   .venue-name {
@@ -43,6 +54,9 @@
     font-family: $header-font;
     font-size: 1.1em;
     line-height: 1;
+    @media(max-width: 900px) {
+      font-size: 1em;
+    }
   }
 
   .address-line {
