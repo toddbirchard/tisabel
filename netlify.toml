@@ -26,7 +26,7 @@
        style-src 'unsafe-inline' https://*;
        child-src blob: ;
        connect-src https://*;
-       font-src *.myfonts.net
+       font-src *.cloudfront.net
        '''
 
 [[headers]]
@@ -34,36 +34,36 @@
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
+      max-age=604800,
+      no-cache,
+      public'''
 
 [[headers]]
   for = "/webfonts/GilroyMedium.woff"
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
+      max-age=604800,
+      no-cache,
+      public'''
 
 [[headers]]
   for = "/webfonts/MacklinTextLight.woff2"
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
+      max-age=604800,
+      no-cache,
+      public'''
 
 [[headers]]
   for = "/webfonts/MacklinTextLight.woff"
   [headers.values]
     crossorigin = "anonymous"
     cache-control = '''
-    max-age=604800,
-    no-cache,
-    public'''
+      max-age=604800,
+      no-cache,
+      public'''
 
 [build.processing]
   skip_processing = false
