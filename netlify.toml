@@ -21,10 +21,10 @@
     X-XSS-Protection = "0"
     Content-Security-Policy = '''
        default-src 'self';
-       img-src 'self'
-       connect-src 'self' https://* wss://*;
-       script-src 'unsafe-inline' *.stripe.com;
-       style-src 'self' https://* ;
+       img-src 'self';
+       connect-src 'self' *.mapbox.com https://* wss://*;
+       script-src 'self' 'unsafe-inline' *.cloudfront.net *.stripe.com;
+       style-src 'self' 'unsafe-inline';
        child-src blob: ;
        font-src 'self' *.cloudfront.net *.stripe.com;
        '''
