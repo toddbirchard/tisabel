@@ -50,14 +50,14 @@ const RegistryItem = ({ item }) => {
             </span>
           </div>
           <p className="gift-description">{item.product.description}</p>
-          <div className="submit-button"><span>Contribute</span> <IoArrowForwardCircleOutline /></div>
+          <div className="submit-button"><IoArrowForwardCircleOutline /> <span>Contribute</span></div>
         </div>
         <GatsbyImage
           image={image}
           placeholder="blurred"
           layout="fluid"
           width={120}
-          height={100}
+          height={120}
           alt={item.product.name}
           className="registry-image"
         />

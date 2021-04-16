@@ -67,6 +67,7 @@
     .event-name {
       font-family: $body-font;
       font-size: 1.05em;
+      line-height: 1.2;
       @media(max-width: $mobile-breakpoint) {
         margin-top: 7px;
         font-size: 1.1em;

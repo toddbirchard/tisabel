@@ -68,7 +68,7 @@ const RegistryListQuery = props => (
                   childImageSharp {
                     gatsbyImageData(
                       width: 130,
-                      height: 100,
+                      height: 130,
                       placeholder: BLURRED,
                       formats: [AUTO, WEBP, JPG]
                     )
