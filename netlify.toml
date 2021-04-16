@@ -9,9 +9,6 @@
   publish = "public/"
   functions = "functions/"
 
-[build.environment]
-  GO_VERSION = "1.16"
-
 [[headers]]
   for = "/*"
   [headers.values]
