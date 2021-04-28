@@ -74,9 +74,9 @@ textarea {
   }
 
   .hero-image-mobile {
-    display: none;
+    display: none !important;
     @media(max-width: $mobile-breakpoint) {
-      display: block;
+      display: block !important;
     }
   }
 }
@@ -120,7 +120,7 @@ main {
   }
 
   .detail {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     @media(max-width: $mobile-breakpoint) {
       margin-bottom: 25px;
     }

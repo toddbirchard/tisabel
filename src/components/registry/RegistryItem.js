@@ -6,7 +6,7 @@ import getStripe from '../../util/Stripe'
 
 
 const formatPrice = (amount, currency) => {
-  let price = (amount / 100).toFixed(2)
+  let price = (amount / 100)
   let numberFormat = new Intl.NumberFormat([`en-US`], {
     style: `currency`,
     currency: currency,
@@ -43,14 +43,18 @@ const RegistryItem = ({ item }) => {
     <form onSubmit={handleSubmit}>
       <button disabled={loading} className="registry-gift">
         <div className="gift-details">
-          <div className="gift-headline">
-            <label className="registry-gift-title">{item.product.name}</label>
-            <span className="price">
-              {formatPrice(item.unit_amount, item.currency)}
-            </span>
+          <div>
+            <div className="gift-headline">
+              <label className="registry-gift-title">{item.product.name}</label>
+              <span className="price">
+                {formatPrice(item.unit_amount, item.currency)}
+              </span>
+            </div>
+            <p className="gift-description">{item.product.description}</p>
           </div>
-          <p className="gift-description">{item.product.description}</p>
-          <div className="submit-button"><IoArrowForwardCircleOutline /> <span>Contribute</span></div>
+          <div className="submit-button">
+            <IoArrowForwardCircleOutline /> <span>Contribute</span>
+          </div>
         </div>
         <GatsbyImage
           image={image}
