@@ -1573,17 +1573,17 @@
   resolved "https://registry.yarnpkg.com/@mapbox/mapbox-gl-supported/-/mapbox-gl-supported-2.0.0.tgz#bb133cd91e562c006713fbc83f21e4b6f711a388"
   integrity sha512-zu4udqYiBrKMQKwpKJ4hhPON7tz0QR/JZ3iGpHnNWFmH3Sv/ysxlICATUtGCFpsyJf2v1WpFhlzaZ3GhhKmPMA==
 
-"@mapbox/mapbox-sdk@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-sdk/-/mapbox-sdk-0.12.1.tgz#917cc9a7f5b12390340c1958277400facfb44bec"
-  integrity sha512-XSYYhw8+Y6Osz0JF87Z3YAh40b4gt3riqQM4ZpRsPBHx7QT+vBfHwCvBaR/p6Oc+kDiTAQ7zNpudbjB5cKWpTw==
+"@mapbox/mapbox-sdk@0.13.2":
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/@mapbox/mapbox-sdk/-/mapbox-sdk-0.13.2.tgz#a759ccecd8252d7703a9209f028603375c5680d2"
+  integrity sha512-VP2+Gyada3G8IJPbiD+9KZMEIxqITyPjVL66FBav2qjFhlHf5LrRCoZ4IbI6Os8DZadSEyxDGVU/doLaohkJRw==
   dependencies:
     "@mapbox/fusspot" "^0.4.0"
     "@mapbox/parse-mapbox-token" "^0.2.0"
     "@mapbox/polyline" "^1.0.0"
     eventemitter3 "^3.1.0"
     form-data "^3.0.0"
-    got "^8.3.2"
+    got "^10.7.0"
     is-plain-obj "^1.1.0"
     xtend "^4.0.1"
 
@@ -7921,7 +7921,7 @@ gonzales-pe@^4.3.0:
   dependencies:
     minimist "^1.2.5"
 
-got@8.3.2, got@^8.3.1, got@^8.3.2:
+got@8.3.2, got@^8.3.1:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/got/-/got-8.3.2.tgz#1d23f64390e97f776cac52e5b936e5f514d2e937"
   integrity sha512-qjUJ5U/hawxosMryILofZCkm3C84PLJS/0grRIpjAwu+Lkxxj5cxeCU25BG0/3mDSpXKTyZr8oh8wIgLaH0QCw==

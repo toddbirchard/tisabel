@@ -36,7 +36,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@mapbox/mapbox-sdk": "^0.12.1",
+    "@mapbox/mapbox-sdk": "0.13.2",
     "@netlify/plugin-lighthouse": "2.1.2",
     "@stripe/stripe-js": "^1.13.2",
     "autoprefixer": "10.3.5",
