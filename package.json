@@ -42,7 +42,7 @@
     "autoprefixer": "10.3.5",
     "browserslist": "^4.16.5",
     "gatsby": "^3.4.0",
-    "gatsby-plugin-eslint": "^3.0.0",
+    "gatsby-plugin-eslint": "4.0.2",
     "gatsby-plugin-force-trailing-slashes": "^1.0.5",
     "gatsby-plugin-gauges": "^0.0.4",
     "gatsby-plugin-image": "^1.4.0",
