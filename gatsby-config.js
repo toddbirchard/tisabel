@@ -87,7 +87,7 @@ module.exports = {
       },
     },
     /**
-     *  Ecommerce Plugins
+     *  E-commerce Plugins
      */
     {
       resolve: `gatsby-source-stripe`,
