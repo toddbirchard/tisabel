@@ -82,8 +82,9 @@ yarn-error.log
 .netlify
 functions/*
 
-# Jetbrains
+# IDEs
 .idea
+.vscode
 
 # Yarn
 .yarn

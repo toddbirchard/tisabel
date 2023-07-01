@@ -13,3 +13,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/toddbirchard/tisabel.svg?style=flat-square&colorA=4c566a&colorB=ebcb8b&logo=GitHub)](https://github.com/toddbirchard/tisabel/network)
 
 ![Todd & Isabel](https://github.com/toddbirchard/tisabel/blob/master/.github/tisabel@2x.jpg?raw=true)
+
+## About
+
+Landing page for the wedding of the century. Built with [Gatsby](https://www.gatsbyjs.org/), [Strapi](https://strapi.io/), and [Stripe](https://stripe.com/).
